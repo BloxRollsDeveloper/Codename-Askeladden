@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
@@ -18,33 +15,40 @@ public class DialogueTrigger : MonoBehaviour
     {
         playerInRange = false;
         visualCue.SetActive(false);
+
+        inputActions = new PlayerInputActions();
+        inputActions.Enable();
     }
 
     private void Update()
     {
-        if (playerInRange)
+        visualCue.SetActive(playerInRange); // Shows Visual Cue
+
+        if (playerInRange && inputActions.Player.Interact.WasPressedThisFrame())
         {
-            visualCue.SetActive(true);
+            TriggerDialogue();
         }
-        else
-        {
-            visualCue.SetActive(false);
-        }
+    }
+
+    private void TriggerDialogue() // Triggers the Dialogue
+    {
+        DialogueManager.GetInstance().EnterDialogueMode(inkJson);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
-        {
             playerInRange = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
-        {
             playerInRange = false;
-        }
+    }
+
+    private void OnDestroy()
+    {
+        inputActions.Disable();
     }
 }

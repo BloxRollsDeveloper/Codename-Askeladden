@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
+        }
         Vector2 move = inputActions.Player.Move.ReadValue<Vector2>();
         rb.linearVelocity = move * speed;
     }
