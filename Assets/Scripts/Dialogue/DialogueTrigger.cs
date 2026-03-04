@@ -9,8 +9,10 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private GameObject visualCue;
     
     [Header("Ink JSON")]
+    [SerializeField] private TextAsset inkJson;
     
     private bool playerInRange;
+    private PlayerInputActions inputActions;
     
     private void Awake()
     {
@@ -30,7 +32,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
@@ -38,7 +40,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider2D collider)
+    private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
