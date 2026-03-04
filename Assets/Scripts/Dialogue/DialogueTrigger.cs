@@ -22,9 +22,11 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        visualCue.SetActive(playerInRange); // Shows Visual Cue
-
-        if (playerInRange && inputActions.Player.Interact.WasPressedThisFrame())
+        bool dialoguePlaying = DialogueManager.GetInstance().dialogueIsPlaying;
+        
+        visualCue.SetActive(playerInRange && !dialoguePlaying); // Displays the Visual Cue
+        
+        if (playerInRange && !dialoguePlaying && inputActions.Player.Interact.WasPressedThisFrame()) // Interact Pressed
         {
             TriggerDialogue();
         }

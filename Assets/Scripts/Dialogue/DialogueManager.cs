@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using Ink.Runtime;
@@ -61,8 +62,10 @@ public class DialogueManager : MonoBehaviour
         ContinueStory();
     }
 
-    private void ExitDialogueMode()
+    private IEnumerator ExitDialogueMode()
     {
+        yield return new WaitForSeconds(0.2f);
+        
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
@@ -76,7 +79,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            ExitDialogueMode();
+            StartCoroutine(ExitDialogueMode());
         }
     }
     private void OnDestroy()
