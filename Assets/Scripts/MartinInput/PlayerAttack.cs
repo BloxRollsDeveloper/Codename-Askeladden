@@ -6,21 +6,25 @@ public class PlayerAttack : MonoBehaviour
     public float damage;
     public Transform attackCentre;
     public LayerMask enemyLayer;
-
-    private Collider2D enemyCollider;
     
-    private bool DidAttackHitEnemy()
+    private Collider2D DidAttackHitEnemy()
     {
-        return enemyCollider = Physics2D.OverlapCircle(attackCentre.forward, attackRange, enemyLayer);
+        return Physics2D.OverlapCircle(attackCentre.forward, attackRange, enemyLayer);
     }
 
     public void UpdateAttack()
     {
-        if (DidAttackHitEnemy())
+        Collider2D enemyCollider = DidAttackHitEnemy();
+        
+        if (enemyCollider != null)
         {
             print("I am attacking!");
             enemyCollider.TryGetComponent(out EnemyHealth health);
             health.TakeDamage(damage);
+        }
+        else
+        {
+            print("I don't know what hit!");
         }
     }
 
