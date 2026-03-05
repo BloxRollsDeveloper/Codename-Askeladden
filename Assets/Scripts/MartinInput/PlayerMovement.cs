@@ -30,7 +30,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (inputActions.Player.Attack.WasPressedThisFrame())
         {
-            print("Rahhh, get pregante!");
+            print("Attack!");
+            _playerAttack.UpdateAttack();
         }
     }
 }

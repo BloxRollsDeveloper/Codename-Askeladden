@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   attackRange: 2
-  damage: 0
+  damage: 2
   attackCentre: {fileID: 6061492760889062066}
   enemyLayer:
     serializedVersion: 2
