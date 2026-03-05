@@ -14,17 +14,16 @@ public class PlayerAttack : MonoBehaviour
 
     public void UpdateAttack()
     {
-        Collider2D enemyCollider = DidAttackHitEnemy();
-        
-        if (enemyCollider != null)
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackCentre.position, attackRange, enemyLayer);
+
+        if (enemies.Length > 0)
         {
-            print("I am attacking!");
-            enemyCollider.TryGetComponent(out EnemyHealth health);
-            health.TakeDamage(damage);
-        }
-        else
-        {
-            print("I don't know what hit!");
+            foreach (Collider2D enemyCollider in enemies)
+            {
+                print("I got you bitch!");
+                enemyCollider.TryGetComponent(out EnemyHealth health);
+                health.TakeDamage(damage);
+            }
         }
     }
 
