@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   visualCue: {fileID: 1434622635}
-  inkJson: {fileID: 4900000, guid: 7d3379aecb4437f468a3d8a1aa1f4e93, type: 3}
+  inkJson: {fileID: 4900000, guid: 4fa3e55b677a08347b1600c31b7cb589, type: 3}
 --- !u!1 &898973708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1510,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1500002560}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2023393988}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: MakeChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1500002560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,7 +1643,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1628972854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2023393988}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: MakeChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1628972854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1752,7 +1776,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1797726681}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2023393988}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: MakeChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1797726681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +1913,7 @@ MonoBehaviour:
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: f67f979f5ff14eb4eafe2a3bd9b5b862, type: 3}
   m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: -3406824595801864517, guid: f67f979f5ff14eb4eafe2a3bd9b5b862, type: 3}
+  m_MoveAction: {fileID: 0}
   m_SubmitAction: {fileID: -6647080027901138072, guid: f67f979f5ff14eb4eafe2a3bd9b5b862, type: 3}
   m_CancelAction: {fileID: 0}
   m_LeftClickAction: {fileID: 0}

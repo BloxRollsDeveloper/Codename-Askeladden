@@ -214,9 +214,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Cycle"",
+                    ""name"": ""CycleUp"",
                     ""type"": ""Button"",
                     ""id"": ""019c0a3c-e485-4785-bf86-55202f9bc9c4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CycleDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""c80b01f8-19bb-45b1-9f1c-cb53729fa518"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -237,23 +246,23 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""edf4bae1-5096-49d8-9767-22c820e05461"",
+                    ""id"": ""0d32534e-8212-4c29-9e0f-da05922b82a0"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Cycle"",
+                    ""action"": ""CycleUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""53625a6a-e2a0-4871-bf95-962a2304bc8d"",
+                    ""id"": ""3b147ce5-1546-410d-804f-b28b3ecbe2cb"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Cycle"",
+                    ""action"": ""CycleDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -270,7 +279,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_Submit = m_Dialogue.FindAction("Submit", throwIfNotFound: true);
-        m_Dialogue_Cycle = m_Dialogue.FindAction("Cycle", throwIfNotFound: true);
+        m_Dialogue_CycleUp = m_Dialogue.FindAction("CycleUp", throwIfNotFound: true);
+        m_Dialogue_CycleDown = m_Dialogue.FindAction("CycleDown", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -471,7 +481,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Dialogue;
     private List<IDialogueActions> m_DialogueActionsCallbackInterfaces = new List<IDialogueActions>();
     private readonly InputAction m_Dialogue_Submit;
-    private readonly InputAction m_Dialogue_Cycle;
+    private readonly InputAction m_Dialogue_CycleUp;
+    private readonly InputAction m_Dialogue_CycleDown;
     /// <summary>
     /// Provides access to input actions defined in input action map "Dialogue".
     /// </summary>
@@ -488,9 +499,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Submit => m_Wrapper.m_Dialogue_Submit;
         /// <summary>
-        /// Provides access to the underlying input action "Dialogue/Cycle".
+        /// Provides access to the underlying input action "Dialogue/CycleUp".
         /// </summary>
-        public InputAction @Cycle => m_Wrapper.m_Dialogue_Cycle;
+        public InputAction @CycleUp => m_Wrapper.m_Dialogue_CycleUp;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/CycleDown".
+        /// </summary>
+        public InputAction @CycleDown => m_Wrapper.m_Dialogue_CycleDown;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -520,9 +535,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Submit.started += instance.OnSubmit;
             @Submit.performed += instance.OnSubmit;
             @Submit.canceled += instance.OnSubmit;
-            @Cycle.started += instance.OnCycle;
-            @Cycle.performed += instance.OnCycle;
-            @Cycle.canceled += instance.OnCycle;
+            @CycleUp.started += instance.OnCycleUp;
+            @CycleUp.performed += instance.OnCycleUp;
+            @CycleUp.canceled += instance.OnCycleUp;
+            @CycleDown.started += instance.OnCycleDown;
+            @CycleDown.performed += instance.OnCycleDown;
+            @CycleDown.canceled += instance.OnCycleDown;
         }
 
         /// <summary>
@@ -537,9 +555,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Submit.started -= instance.OnSubmit;
             @Submit.performed -= instance.OnSubmit;
             @Submit.canceled -= instance.OnSubmit;
-            @Cycle.started -= instance.OnCycle;
-            @Cycle.performed -= instance.OnCycle;
-            @Cycle.canceled -= instance.OnCycle;
+            @CycleUp.started -= instance.OnCycleUp;
+            @CycleUp.performed -= instance.OnCycleUp;
+            @CycleUp.canceled -= instance.OnCycleUp;
+            @CycleDown.started -= instance.OnCycleDown;
+            @CycleDown.performed -= instance.OnCycleDown;
+            @CycleDown.canceled -= instance.OnCycleDown;
         }
 
         /// <summary>
@@ -617,11 +638,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSubmit(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Cycle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "CycleUp" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCycle(InputAction.CallbackContext context);
+        void OnCycleUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CycleDown" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCycleDown(InputAction.CallbackContext context);
     }
 }
