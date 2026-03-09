@@ -1,16 +1,19 @@
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInput), typeof(PlayerMove))]
 public class PlayerController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private PlayerInput _playerInput;
+    private PlayerMove _playerMove;
+
+    private void Start()
     {
-        
+        _playerInput = GetComponent<PlayerInput>();
+        _playerMove = GetComponent<PlayerMove>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        _playerMove.UpdateMovement(_playerInput.Movement, false);
     }
 }

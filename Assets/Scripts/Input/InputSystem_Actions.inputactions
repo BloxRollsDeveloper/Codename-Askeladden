@@ -37,7 +37,7 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
@@ -994,12 +994,12 @@
         },
         {
             "name": "Dialogue",
-            "id": "4569514c-b1ec-4391-a0e0-88799cd01064",
+            "id": "68a5edf3-9055-4107-beb7-949180cbf88e",
             "actions": [
                 {
                     "name": "CycleUp",
                     "type": "Button",
-                    "id": "e0c7eab9-839c-4df6-9acb-12086466f97b",
+                    "id": "782e0144-e2f6-4053-a138-c7029e917fd0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1008,7 +1008,7 @@
                 {
                     "name": "CycleDown",
                     "type": "Button",
-                    "id": "8f94300d-8eda-49de-a80d-ff51b3acbdd6",
+                    "id": "e65e2022-e81b-420a-8839-48de288e0c2c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1017,7 +1017,7 @@
                 {
                     "name": "Submit",
                     "type": "Button",
-                    "id": "144bb239-4cd6-4869-8b03-98612e3dd7c9",
+                    "id": "cb4126c5-0986-463d-ac20-2ef689f5c860",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1027,7 +1027,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "0507f9cb-84cb-48ae-8152-62bbf7347f40",
+                    "id": "37800699-c0ec-4fed-a0fb-ec72b2b3fe26",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
@@ -1038,7 +1038,7 @@
                 },
                 {
                     "name": "",
-                    "id": "41553545-3244-4c91-a564-e83452a984b8",
+                    "id": "9ba188a0-ae3a-4f9a-b30c-b7f930f6908e",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
@@ -1049,7 +1049,7 @@
                 },
                 {
                     "name": "",
-                    "id": "64d1aca1-ca39-43f2-a868-e92d3886acd5",
+                    "id": "1c78c86c-70a0-4668-9f44-380f97af86b4",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
