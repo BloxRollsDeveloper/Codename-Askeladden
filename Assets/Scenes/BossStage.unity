@@ -294,9 +294,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2179792453294823598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4304b098ff3d7664982400fa75f3dbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlterController
+  activationTime: 4
 --- !u!95 &486344379226868411
 Animator:
   serializedVersion: 7
@@ -365,9 +366,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 981226330285441660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4304b098ff3d7664982400fa75f3dbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlterController
+  activationTime: 4
 --- !u!70 &849055135515492224
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -414,9 +416,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7028701575923124373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4304b098ff3d7664982400fa75f3dbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlterController
+  activationTime: 4
 --- !u!58 &976183794613989502
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -502,7 +505,7 @@ Animator:
   m_GameObject: {fileID: 7028701575923124373}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ca9f28b3b75ab194b948ceb0af442d97, type: 2}
+  m_Controller: {fileID: 9100000, guid: 528f367a6d82fc94ea493492446b9fc2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -788,7 +791,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6324861201086658276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e564932fc0237e8428869227dc2b10b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulderRoll
 --- !u!95 &4660744159653422956
@@ -858,7 +861,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6324861201086658276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: f771c8bdbb3a36b4eabffa9b79a5bd13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LivingRootSpawner
 --- !u!61 &5325020668767766532
@@ -966,7 +969,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6324861201086658276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: c78fcae513413cd47ba09f2721c02179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyTrollSpawner
 --- !u!1 &6324861201086658276
@@ -997,9 +1000,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5950187768252004200}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 5123bc1a04defaa4fb23e0e533f2439f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossController
+  bossHp: 6
+  babyTrollSpawner: {fileID: 6179693414241912145}
+  livingRootSpawner: {fileID: 4642723979202238056}
+  boulderRoll: {fileID: 5228874560842449227}
+  altars:
+  - {fileID: 955064398184379621}
+  - {fileID: 420833570135280016}
+  - {fileID: 805868644598678813}
 --- !u!1 &7028701575923124373
 GameObject:
   m_ObjectHideFlags: 0
