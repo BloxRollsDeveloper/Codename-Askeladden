@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [Header("Weapon")]
     [SerializeField] private Animator anim;
     [SerializeField] private Transform weapon;
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask whatIsEnemy;
-    
+    [SerializeField] private float damage;
 
     public void UpdateAttack(bool isAttacking)
     {
@@ -14,10 +15,6 @@ public class PlayerAttack : MonoBehaviour
         {
             anim.Play("SwordAttack");
             CheckForEnemies();
-        }
-        else
-        {
-            anim.Play("SwordHover");
         }
     }
 
@@ -28,7 +25,11 @@ public class PlayerAttack : MonoBehaviour
         if (enemies.Length > 0)
         {
             print("enemies found");
-            // TODO: get the enemy health script from here and affect them.
+            foreach (Collider2D col in enemies)
+            {
+                col.TryGetComponent(out Enemy_Health health);
+                health.TakeDamage(damage);
+            }
         }
     }
 
