@@ -16,7 +16,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _playerMove.UpdateMovement(_playerInput.Movement, false);
         _playerAttack.UpdateAttack(_playerInput.Attack);
+    }
+
+    private void FixedUpdate()
+    {
+        _playerMove.UpdateMovement(_playerInput.Movement, false);
     }
 }

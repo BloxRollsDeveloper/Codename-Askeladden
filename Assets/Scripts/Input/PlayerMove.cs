@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     
     private Rigidbody2D _rigidbody2D;
 
-    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float moveSpeed = 5f;
 
     private void Start()
     {
@@ -18,6 +18,6 @@ public class PlayerMove : MonoBehaviour
     public void UpdateMovement(Vector2 movement, bool isDialogueActive)
     {
         if (isDialogueActive) return;
-        _rigidbody2D.linearVelocity = (movement * moveSpeed).normalized;
+        _rigidbody2D.linearVelocity = movement * (moveSpeed * Time.deltaTime);
     }
 }
