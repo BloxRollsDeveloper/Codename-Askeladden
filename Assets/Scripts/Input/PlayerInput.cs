@@ -8,6 +8,8 @@ public class PlayerInput : MonoBehaviour
     public bool Attack  { get; private set; }
     public bool Interact  { get; private set; }
     
+    public bool SelfHarm { get; private set; }
+    
     private void Awake() => _inputSystem = new InputSystem_Actions();
     private void OnEnable() => _inputSystem.Enable();
     private void OnDisable() => _inputSystem.Disable();
@@ -18,6 +20,7 @@ public class PlayerInput : MonoBehaviour
 
         Attack = _inputSystem.Player.Attack.WasPressedThisFrame();
         Interact = _inputSystem.Player.Interact.WasPressedThisFrame();
+        SelfHarm = _inputSystem.Player.Crouch.WasPressedThisFrame();
     }
     
 }
