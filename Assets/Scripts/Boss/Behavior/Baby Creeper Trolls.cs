@@ -70,7 +70,7 @@ public class BabyCreeperTrolls : MonoBehaviour
       TryGetComponent(out CinemachineImpulseSource impulse);
       impulse.GenerateImpulse();
       
-      Vector3 direction = -(target.position - transform.position).normalized;
+      Vector3 direction = -(transform.position - target.position).normalized;
       Vector2 force = direction * knockBackForce;
       
       target.TryGetComponent(out PlayerController playerController);
@@ -80,7 +80,7 @@ public class BabyCreeperTrolls : MonoBehaviour
       playerHealth.TakeDamage(damage, true);
       
       target.TryGetComponent(out Rigidbody2D playerBody);
-      playerBody.linearVelocity = direction * knockBackForce;
+      playerBody.linearVelocity = force;
       print("I Am Dead");
    }
    
