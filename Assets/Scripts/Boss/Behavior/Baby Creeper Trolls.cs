@@ -1,15 +1,14 @@
-using System;
-using System.Collections;
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class BabyCreeperTrolls : MonoBehaviour
 {
    [Header("Target")]
    public Transform target;
+   
+   [Header("Self")]
    private Vector2 _moveDirection;
    private Rigidbody2D _rigidbody2D;
-   
-   [Header("Speed")]
    public float speed;
 
    [Header("Range")]
@@ -17,9 +16,11 @@ public class BabyCreeperTrolls : MonoBehaviour
    public bool canChase;
 
    [Header("Attack")]
-   public float attackTime;
-   public float knockBackForce;
-   public bool attacking;
+   [SerializeField] private float attackDelay = 5f;
+   [SerializeField] private float knockBackForce;
+   [SerializeField] private float damage;
+   [SerializeField] private bool attacking;
+   [SerializeField] private float timer = 0f;
    
    private void Start()
    {
@@ -43,7 +44,14 @@ public class BabyCreeperTrolls : MonoBehaviour
          if (attacking) return;
          
          _rigidbody2D.linearVelocity = Vector2.zero;
-         StartCoroutine(Attacking());
+         print("This could be an animation");
+         
+         timer += Time.deltaTime;
+
+         if (timer >= attackDelay)
+         {
+            Attacking();
+         }
       }
    }
 
@@ -52,19 +60,27 @@ public class BabyCreeperTrolls : MonoBehaviour
       if (canChase) _rigidbody2D.linearVelocity = _moveDirection * speed;
    }
 
-   private IEnumerator Attacking()
+   private void Attacking()
    {
       attacking = true;
       print("Kablooey");
-      yield return new WaitForSeconds(0.1f);
       
       Destroy(gameObject, 0.2f);
+      
+      TryGetComponent(out CinemachineImpulseSource impulse);
+      impulse.GenerateImpulse();
       
       Vector3 direction = -(target.position - transform.position).normalized;
       Vector2 force = direction * knockBackForce;
       
-      target.TryGetComponent(out Rigidbody2D rigidbody2D);
-      rigidbody2D.AddForce(force, ForceMode2D.Impulse);
+      target.TryGetComponent(out PlayerController playerController);
+      playerController.isKnockedBack = true;
+      
+      target.TryGetComponent(out PlayerHealth playerHealth);
+      playerHealth.TakeDamage(damage, true);
+      
+      target.TryGetComponent(out Rigidbody2D playerBody);
+      playerBody.linearVelocity = direction * knockBackForce;
       print("I Am Dead");
    }
    
