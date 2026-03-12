@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using Unity.Cinemachine;
+using System.Threading.Tasks;
 
 public class Enemy_Health : MonoBehaviour
 {
@@ -16,7 +18,9 @@ public class Enemy_Health : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
+            TryGetComponent(out CinemachineImpulseSource impulse);
+            impulse.GenerateImpulse();
         }
     }
 }

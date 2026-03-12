@@ -1,16 +1,40 @@
+using System;
 using UnityEngine;
 
 public class BabyCreeperTrolls : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+   [Header("Target")]
+   public Transform target;
+   private Vector2 _moveDirection;
+   private Rigidbody2D _rigidbody2D;
+   
+   [Header("Speed")]
+   public float speed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   [Header("Range")]
+   public float stopRange;
+   public bool canChase;
+   public bool stop;
+
+   private void Start()
+   {
+      _rigidbody2D = GetComponent<Rigidbody2D>();
+      canChase = true;
+   }
+
+   private void Update()
+   {
+      if (canChase)
+      {
+         
+      }
+   }
+
+   private void FixedUpdate()
+   {
+      if (canChase)
+      {
+         
+      }
+   }
 }
