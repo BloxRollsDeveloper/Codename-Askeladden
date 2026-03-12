@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
     private PlayerAttack _playerAttack;
     private PlayerHealth _playerHealth;
 
+    [Header("Knockback")] 
+    [SerializeField] private float knockbackDelay = 0.2f; 
+    private float _knockbackTimer = 0f;
+    public bool isKnockedBack = false;
+    
+
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -25,6 +31,16 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _playerMove.UpdateMovement(_playerInput.Movement, false);
+        if (isKnockedBack && _knockbackTimer <= knockbackDelay)
+        {
+            _knockbackTimer += Time.fixedDeltaTime;
+            isKnockedBack = false;
+        }
+        else
+        {
+            _playerMove.UpdateMovement(_playerInput.Movement, false);
+            _knockbackTimer = 0f;
+        }
+        
     }
 }

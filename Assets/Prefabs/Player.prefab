@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 5593710999415151042}
   - component: {fileID: 5899847830031148432}
   - component: {fileID: 8242217156591181970}
+  - component: {fileID: 265899128279612999}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -223,6 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8003d6c75a1acaf4d862da499fa21307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  knockbackDelay: 0.2
+  isKnockedBack: 0
 --- !u!114 &8595639682933639929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11097b2d16dc2b9498f542e6ba70a669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  moveSpeed: 2
+  moveSpeed: 100
 --- !u!114 &8242217156591181970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,3 +297,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   damage: 2
+--- !u!114 &265899128279612999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023425765221619286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76e7e13b9ed6b649a28e78b19fdcf91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  healthSlider: {fileID: 0}
+  maxHealth: 20
+  currentHealth: 20
