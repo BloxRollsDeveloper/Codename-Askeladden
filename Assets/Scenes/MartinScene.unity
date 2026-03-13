@@ -133,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.188
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.249
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -179,6 +179,11 @@ PrefabInstance:
 --- !u!4 &108061982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+  m_PrefabInstance: {fileID: 108061981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &108061983 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1160356261127867848, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
   m_PrefabInstance: {fileID: 108061981}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &215878679
@@ -810,6 +815,7 @@ GameObject:
   - component: {fileID: 1111369829}
   - component: {fileID: 1111369828}
   - component: {fileID: 1111369827}
+  - component: {fileID: 1111369834}
   m_Layer: 0
   m_Name: PlayerHolder
   m_TagString: Untagged
@@ -858,8 +864,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb5b22e4750c70468ec7fed4d211162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  anim: {fileID: 0}
-  weapon: {fileID: 0}
+  attackPoint: []
+  anim: {fileID: 108061983}
+  activeAttackPoint: {fileID: 1111369833}
   attackRange: 2
   whatIsEnemy:
     serializedVersion: 2
@@ -877,7 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11097b2d16dc2b9498f542e6ba70a669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  moveSpeed: 5
+  moveSpeed: 100
+  animator: {fileID: 108061983}
 --- !u!50 &1111369831
 Rigidbody2D:
   serializedVersion: 5
@@ -893,7 +901,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -933,6 +941,19 @@ Transform:
   - {fileID: 108061982}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1111369834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111369826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4aa7e8329c48f42b4d8e45b49b4483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDirection
+  direction: 0
 --- !u!1 &1504690787
 GameObject:
   m_ObjectHideFlags: 0
