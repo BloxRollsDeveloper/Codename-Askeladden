@@ -8,8 +8,8 @@ public class PlayerAttack : MonoBehaviour
      */
     
     [Header("Direction")]
-    private PlayerDirection _playerDirection;
     [SerializeField] private Transform[] attackPoint;
+    
     
     [Header("Weapon")]
     [SerializeField] private Animator anim;
@@ -17,23 +17,26 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask whatIsEnemy;
     [SerializeField] private float damage;
+    
+    private PlayerController _playerController;
 
     private void Start()
     {
-        _playerDirection = GetComponent<PlayerDirection>();
+        _playerController = GetComponent<PlayerController>();
     }
-
+    
     public void UpdateAttack(bool isAttacking)
     {
         if (isAttacking)
         {
-            UpdateAttackDirection(_playerDirection);
             CheckForEnemies();
         }
     }
 
     private void CheckForEnemies()
     {
+        _playerController.animationState = PlayerController.AnimationState.Attack;
+        
         Collider2D[] enemies = Physics2D.OverlapCircleAll(activeAttackPoint.position, attackRange, whatIsEnemy);
 
         if (enemies.Length > 0)
@@ -47,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void UpdateAttackDirection(PlayerDirection direction)
+    public void UpdateAttackDirection(PlayerDirection direction)
     {
         switch (direction.direction)
         {

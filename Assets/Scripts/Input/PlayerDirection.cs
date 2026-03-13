@@ -5,6 +5,9 @@ public class PlayerDirection : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
     private bool isMoving;
+    private Vector2 animationDirection = Vector2.zero;
+
+    public float animationLag = 3f;
     
     public enum Direction
     {
@@ -35,44 +38,50 @@ public class PlayerDirection : MonoBehaviour
         // in this function, we will figure out a way to change directions.
         Vector2 currentDirection = new Vector2(_rigidbody2D.linearVelocityX, _rigidbody2D.linearVelocityY);
 
-        if (currentDirection is { x: 0, y: > 0 })
+        if (currentDirection != Vector2.zero)
         {
-            direction = Direction.North;
+            animationDirection = (animationDirection - currentDirection) / animationLag;
+            animationDirection.Normalize();
         }
 
-        if (currentDirection is { x: > 0, y: 0 })
-        {
-            direction = Direction.East;
-        }
-
-        if (currentDirection is { x: 0, y: < 0 })
+        if (animationDirection is { x: 0, y: > 0 })
         {
             direction = Direction.South;
         }
 
-        if (currentDirection is { x: < 0, y: 0 })
+        if (animationDirection is { x: > 0, y: 0 })
         {
             direction = Direction.West;
         }
 
-        if (currentDirection is { x: > 0, y: > 0 })
+        if (animationDirection is { x: 0, y: < 0 })
         {
-            direction = Direction.NorthEast;
+            direction = Direction.North;
         }
 
-        if (currentDirection is { x: < 0, y: > 0 })
+        if (animationDirection is { x: < 0, y: 0 })
         {
-            direction = Direction.NorthWest;
+            direction = Direction.East;
         }
 
-        if (currentDirection is { x: > 0, y: < 0 })
+        if (animationDirection is { x: > 0, y: > 0 })
+        {
+            direction = Direction.SouthWest;
+        }
+
+        if (animationDirection is { x: < 0, y: > 0 })
         {
             direction = Direction.SouthEast;
         }
 
-        if (currentDirection is { x: < 0, y: < 0 })
+        if (animationDirection is { x: > 0, y: < 0 })
         {
-            direction = Direction.SouthWest;
+            direction = Direction.NorthWest;
+        }
+
+        if (animationDirection is { x: < 0, y: < 0 })
+        {
+            direction = Direction.NorthEast;
         }
     }
 }
