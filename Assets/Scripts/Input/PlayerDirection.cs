@@ -54,5 +54,25 @@ public class PlayerDirection : MonoBehaviour
         {
             direction = Direction.West;
         }
+
+        if (currentDirection is { x: > 0, y: > 0 })
+        {
+            direction = Direction.NorthEast;
+        }
+
+        if (currentDirection is { x: < 0, y: > 0 })
+        {
+            direction = Direction.NorthWest;
+        }
+
+        if (currentDirection is { x: > 0, y: < 0 })
+        {
+            direction = Direction.SouthEast;
+        }
+
+        if (currentDirection is { x: < 0, y: < 0 })
+        {
+            direction = Direction.SouthWest;
+        }
     }
 }
