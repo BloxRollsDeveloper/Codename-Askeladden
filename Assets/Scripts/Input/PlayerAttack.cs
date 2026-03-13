@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public enum AttackDirection
+    {
+        
+    }
+    
+    
     [Header("Weapon")]
     [SerializeField] private Animator anim;
     [SerializeField] private Transform weapon;
@@ -13,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (isAttacking)
         {
-            anim.Play("SwordAttack");
+            // anim.Play("SwordAttack");
             CheckForEnemies();
         }
     }
