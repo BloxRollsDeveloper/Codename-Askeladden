@@ -77,7 +77,7 @@ public class BabyCreeperTrolls : MonoBehaviour
       playerController.isKnockedBack = true;
       
       target.TryGetComponent(out PlayerHealth playerHealth);
-      playerHealth.TakeDamage(damage, true);
+      playerHealth.TakeDamage(damage);
       
       target.TryGetComponent(out Rigidbody2D playerBody);
       playerBody.linearVelocity = force;

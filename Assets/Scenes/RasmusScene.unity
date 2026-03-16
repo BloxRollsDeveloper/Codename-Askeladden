@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1384877690}
+    - target: {fileID: 4861900820440587742, guid: d1c2be617532fca40ae2caba5a501da1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 64.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861900820440587742, guid: d1c2be617532fca40ae2caba5a501da1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27.600006
+      objectReference: {fileID: 0}
     - target: {fileID: 6239392546798776973, guid: d1c2be617532fca40ae2caba5a501da1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -255,7 +263,7 @@ GameObject:
   - component: {fileID: 283420973}
   - component: {fileID: 283420974}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: Troll "Creeper" Baby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

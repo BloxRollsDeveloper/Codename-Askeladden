@@ -1,13 +1,27 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerInput), typeof(PlayerMove), typeof(PlayerAttack))]
-[RequireComponent(typeof(PlayerHealth))]
+[RequireComponent(typeof(PlayerHealth), typeof(PlayerDirection))]
 public class PlayerController : MonoBehaviour
 {
+    // basically, we need a way to play animations, without them overlapping each other.
+    public enum AnimationState
+    {
+        Idle,
+        Run,
+        Attack,
+        Damage,
+        Dead,
+        Fiddle
+    }
+    
+    public AnimationState animationState;
+    
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
     private PlayerAttack _playerAttack;
     private PlayerHealth _playerHealth;
+    private PlayerDirection _playerDirection;
 
     [Header("Knockback")] 
     [SerializeField] private float knockbackDelay = 0.2f; 
@@ -21,12 +35,16 @@ public class PlayerController : MonoBehaviour
         _playerMove = GetComponent<PlayerMove>();
         _playerAttack = GetComponent<PlayerAttack>();
         _playerHealth = GetComponent<PlayerHealth>();
+        _playerDirection = GetComponent<PlayerDirection>();
+        
+        animationState = AnimationState.Idle;
     }
 
     private void Update()
     {
         _playerAttack.UpdateAttack(_playerInput.Attack);
-        _playerHealth.TakeDamage(2f, _playerInput.SelfHarm);
+        
+        UpdateAnimationState();
     }
 
     private void FixedUpdate()
@@ -42,5 +60,27 @@ public class PlayerController : MonoBehaviour
             _knockbackTimer = 0f;
         }
         
+    }
+
+    private void UpdateAnimationState()
+    {
+        switch (animationState)
+        {
+            case AnimationState.Idle:
+                _playerMove.UpdateIdleDirection(_playerDirection);
+                break;
+            case AnimationState.Run:
+                _playerMove.UpdateMoveDirection(_playerDirection);
+                break;
+            case AnimationState.Attack:
+                _playerAttack.UpdateAttackDirection(_playerDirection);
+                break;
+            case AnimationState.Damage:
+                _playerHealth.UpdateDamage(_playerDirection);
+                break;
+            case AnimationState.Dead:
+                _playerHealth.UpdateDeath(_playerDirection);
+                break;
+        }
     }
 }
