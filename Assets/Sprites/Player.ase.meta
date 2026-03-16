@@ -2,7 +2,212 @@ fileFormatVersion: 2
 guid: 1acb0c889f53b8c4a9ec0bd99646e1bc
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Alter
+    second: {fileID: 7400000, guid: 1c9731a359f2fb64fa1fcb09fd0f893d, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: AttackEast
+    second: {fileID: 7400000, guid: c3111e46195b08e4fbd1f9f77452cbc1, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: AttackNorth
+    second: {fileID: 7400000, guid: 472131554141a454eaca32a27195f8c2, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: AttackNorthEast
+    second: {fileID: 7400000, guid: 537da282cee00d945897667d2c197572, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: AttackNorthWest
+    second: {fileID: 7400000, guid: 3b0f8a4f9b0873943abe806ebb07834b, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: AttackSouth
+    second: {fileID: 7400000, guid: 1d1453e52bd9c91499ba9bd32415e987, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: AttackSouthEast
+    second: {fileID: 7400000, guid: c61e3a667d4a89248b872b5efc847e24, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: AttackSouthWest
+    second: {fileID: 7400000, guid: dc6759eeea2d5894e9bcfe6adf2bc1d7, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: AttackWest
+    second: {fileID: 7400000, guid: 6a4caf11c630e4c41802061c3bd44974, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DamageNorth
+    second: {fileID: 7400000, guid: 12c7207224480264fbdc59bf1c082321, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DamageNorthEast
+    second: {fileID: 7400000, guid: 7615751e152d12946b91c0403cb237ec, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DamageNorthWest
+    second: {fileID: 7400000, guid: 388d49a16ace574409abbafe832187d0, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DamageSouth
+    second: {fileID: 7400000, guid: 6f7fbcedc85b9c4498c83dc432b83d02, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DamageSouthEast
+    second: {fileID: 7400000, guid: 59808011e910c3043880b77500da607e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DamageSouthWest
+    second: {fileID: 7400000, guid: a2dcadfe379060a4aaa1f51059e5f760, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DamageWest
+    second: {fileID: 7400000, guid: 0b80379374ca734489160c4bbf705402, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DeathEast
+    second: {fileID: 7400000, guid: b97b2f7d22025564fa0cb6ea379661bc, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DeathNorth
+    second: {fileID: 7400000, guid: af02c8d30e3f51341bcc9171c37af4ad, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DeathNorthEast
+    second: {fileID: 7400000, guid: 6c2949801edbe5749953671d9713668f, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DeathNorthWest
+    second: {fileID: 7400000, guid: 3e8618dfee9e6014f93a0af8f4a9cce0, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DeathSouth
+    second: {fileID: 7400000, guid: e12d64a4b7db852459148d5940f9543e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DeathSouthEast
+    second: {fileID: 7400000, guid: e3400b984f23fce42ae76bd797dffc89, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DeathSouthWest
+    second: {fileID: 7400000, guid: 7e6fe5a5e0683ae4eabb832a0a20661e, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DeathWest
+    second: {fileID: 7400000, guid: f1d92b86022d5884693ef80eed4b74d5, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: DmageEast
+    second: {fileID: 7400000, guid: 3777e5f73dad22149861e71c53bbe5bb, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: IdleEast
+    second: {fileID: 7400000, guid: 9fdfa7b72cf4e524f87bf667040ca026, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: IdleNorth
+    second: {fileID: 7400000, guid: e689a184b554fe24dac06f389c7ea343, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: IdleNorthEast
+    second: {fileID: 7400000, guid: a996bfd608b04264d88197e4625e49eb, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: IdleNorthWest
+    second: {fileID: 7400000, guid: d2a61c61d33717a4bb4f9b44d24460fa, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: IdleSouth
+    second: {fileID: 7400000, guid: a2c55fa799372154399fbf99e118f88a, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: IdleSouthEast
+    second: {fileID: 7400000, guid: e3f110c8ad863fc40a5cb9d4c91faec7, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: IdleSouthWest
+    second: {fileID: 7400000, guid: f0dc0357899c8ed429bb93610408b544, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: IdleWest
+    second: {fileID: 7400000, guid: 3506051c192f3e34e9a554ab2d161e12, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: RunEast
+    second: {fileID: 7400000, guid: 496fd5253edb8a247b526f2d4a21d894, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: RunNorth
+    second: {fileID: 7400000, guid: 63a660adee64ebe4bbe8440488a39e81, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: RunNorthEast
+    second: {fileID: 7400000, guid: 7dfe7b961c89d154382a7948b2776a9f, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: RunNorthWest
+    second: {fileID: 7400000, guid: 04bb004a2684253448b47f080478db38, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: RunSouth
+    second: {fileID: 7400000, guid: 25070677734ce2f4992bf39a2d712ed0, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: RunSouthEast
+    second: {fileID: 7400000, guid: 07029e3679a8ab9478e77ebc73c85943, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: RunSouthWest
+    second: {fileID: 7400000, guid: 11003ab3efd10e649b61c3175fc90eb4, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: RunWest
+    second: {fileID: 7400000, guid: b1ca0c4ed586d294c94e26a7735baebc, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +307,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639089952233001411
+  platformSettingsDirtyTick: 639092674159138051
   textureAssetName: 
   singleSpriteImportData:
   - name: 

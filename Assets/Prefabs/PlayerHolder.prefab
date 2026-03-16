@@ -349,6 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
   moveSpeed: 100
   animator: {fileID: 8926446914005824908}
+  idleAnimTime: 0.3
+  runAnimTime: 0.3
 --- !u!114 &6463488107956692401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +379,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   damage: 10
+  attackAnimTime: 0.3
 --- !u!114 &7453973011083509985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +396,8 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 50
   animator: {fileID: 8926446914005824908}
+  damageAnimTime: 0.3
+  deathAnimTime: 0.3
 --- !u!114 &4352414451003854386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +411,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   animationState: 0
+  isMoving: 0
+  isAttacking: 0
+  isTakingDamage: 0
+  isDead: 0
   knockbackDelay: 0.2
   isKnockedBack: 0
 --- !u!114 &8854963968514956581

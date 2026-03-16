@@ -15,7 +15,13 @@ public class PlayerController : MonoBehaviour
         Fiddle
     }
     
+    [Header("Animation")]
     public AnimationState animationState;
+    public bool isMoving;
+    public bool isAttacking;
+    public bool isTakingDamage;
+    public bool isDead;
+    
     
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
@@ -28,7 +34,6 @@ public class PlayerController : MonoBehaviour
     private float _knockbackTimer = 0f;
     public bool isKnockedBack = false;
     
-
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -44,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerAttack.UpdateAttack(_playerInput.Attack);
         
-        UpdateAnimationState();
+        // UpdateAnimationState();
     }
 
     private void FixedUpdate()
