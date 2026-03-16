@@ -7,11 +7,15 @@ using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Typing Speed")]
+    [SerializeField] private float typingSpeed = 0.04f;
+    
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
     [SerializeField] private Animator portraitAnimator;
+    [SerializeField] private GameObject continueIcon;
     private Animator LayoutAnimator;
     
     [Header("Choices UI")]
@@ -24,6 +28,9 @@ public class DialogueManager : MonoBehaviour
     private bool submitConsumed = false;
 
     public bool dialogueIsPlaying { get; private set; }
+    
+    private Coroutine displayLineCoroutine;
+    
     
     private static DialogueManager instance;
     
@@ -142,8 +149,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
-            DisplayChoices();
+            if (displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
             canContinueToNextLine = true;
             // handle tags
             HandleTags(currentStory.currentTags);
@@ -151,6 +161,38 @@ public class DialogueManager : MonoBehaviour
         else
         {
             StartCoroutine(ExitDialogueMode());
+        }
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        // display empty line
+        dialogueText.text = "";
+        
+        continueIcon.SetActive(false);
+        HideChoices();
+        
+        canContinueToNextLine = false;
+        
+        foreach (char letter in line.ToCharArray())
+        {
+            
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        
+        continueIcon.SetActive(true);
+        
+        DisplayChoices();
+        
+        canContinueToNextLine = true;
+    }
+
+    private void HideChoices()
+    {
+        foreach (GameObject choiceButton in choices)
+        {
+            choiceButton.SetActive(false);
         }
     }
 
