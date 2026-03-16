@@ -1226,7 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11097b2d16dc2b9498f542e6ba70a669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  moveSpeed: 5
+  moveSpeed: 100
   animator: {fileID: 2027224135}
   idleAnimTime: 0
   runAnimTime: 0
