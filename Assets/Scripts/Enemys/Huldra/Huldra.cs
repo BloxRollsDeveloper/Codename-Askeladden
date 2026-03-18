@@ -10,6 +10,8 @@ public class Huldra : MonoBehaviour
     private Vector2 _moveDirection;
     private Rigidbody2D _rigidbody;
     public float moveSpeed;
+    public bool canBeAttacked;
+    private Animator _animator;
     
     [Header("Range")]
     public float attackRange;
@@ -40,7 +42,7 @@ public class Huldra : MonoBehaviour
     {
         if (target == null) return;
 
-        if (Vector2.Distance(target.position, transform.position) <= runRange)
+        if (Vector2.Distance(target.position, transform.position) <= runRange && !canBeAttacked)
         {
             running = true;
             _moveDirection = -target.position + transform.position;
@@ -49,12 +51,13 @@ public class Huldra : MonoBehaviour
         {
             running = false;
             _rigidbody.linearVelocity = Vector2.zero;
+            canBeAttacked = true;
             
             timer += Time.deltaTime;
 
             if (timer >= attackDelay)
             {
-                Attacking();
+                StartAttacking();
             }
         }
     }
@@ -64,7 +67,7 @@ public class Huldra : MonoBehaviour
         if (running) _rigidbody.linearVelocity = _moveDirection * moveSpeed;
     }
 
-    private void Attacking()
+    /*private void Attacking()
     {
         attacking = true;
         print("Get charmed");
@@ -72,6 +75,23 @@ public class Huldra : MonoBehaviour
         
         
         timer = resetTimer;
+    }*/
+
+    public void StartAttacking()
+    {
+        attacking = true;
+        Vector3 pdirection = transform.position - target.position;
+        var targetPos = target.position;
+        var projectileClone = Instantiate(projectile, transform.position, Quaternion.identity);
+        projectileClone.TryGetComponent(out Rigidbody2D projectileRb);
+        
+        projectileRb.linearVelocity = pdirection.normalized * projectileSpeed;
+        Destroy(projectileClone, projectileLifetime);
+    }
+
+    public void StopAttacking()
+    {
+        
     }
 
     private void OnDrawGizmos()
