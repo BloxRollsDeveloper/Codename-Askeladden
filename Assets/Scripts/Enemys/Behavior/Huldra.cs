@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Huldra : MonoBehaviour
@@ -13,12 +14,26 @@ public class Huldra : MonoBehaviour
     [Header("Range")]
     public float attackRange;
     public float runRange;
-    public bool canAttack;
+    public bool running;
+
+    [Header("Attack")]
+    [SerializeField] private float timer;
+    [SerializeField] private float resetTimer;
+    [SerializeField] private float damage;
+    [SerializeField] private float attackDelay = 5f;
+    [SerializeField] private bool attacking;
+    
+    [Header("Projectile")]
+    [SerializeField] private float projectileSpeed;
+    [SerializeField] private float projectileCooldown;
+    [SerializeField] private float projectileLifetime;
+    [SerializeField] private GameObject projectile;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        resetTimer = timer;
     }
 
     private void Update()
@@ -27,8 +42,43 @@ public class Huldra : MonoBehaviour
 
         if (Vector2.Distance(target.position, transform.position) <= runRange)
         {
-            canAttack = false;
-            /*_rigidbody.linearVelocity = */
+            running = true;
+            _moveDirection = -target.position + transform.position;
         }
+        else if (Vector2.Distance(target.position, transform.position) >= attackRange)
+        {
+            running = false;
+            _rigidbody.linearVelocity = Vector2.zero;
+            
+            timer += Time.deltaTime;
+
+            if (timer >= attackDelay)
+            {
+                Attacking();
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (running) _rigidbody.linearVelocity = _moveDirection * moveSpeed;
+    }
+
+    private void Attacking()
+    {
+        attacking = true;
+        print("Get charmed");
+        
+        
+        
+        timer = resetTimer;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, runRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
