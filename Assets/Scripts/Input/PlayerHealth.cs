@@ -9,8 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
     
-    private PlayerController _playerController;
-    private PlayerDirection _playerDirection;
+    private PlayerAnimationController _playerAnimationController;
     
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -23,25 +22,23 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthSlider.value = currentHealth;
         
-        _playerController = GetComponent<PlayerController>();
-        _playerDirection = GetComponent<PlayerDirection>();
+        _playerAnimationController = GetComponentInChildren<PlayerAnimationController>();
     }
 
     public void TakeDamage(float damage)
     {
-        // _playerController.animationState = PlayerController.AnimationState.Damage;
-        UpdateDamage(_playerDirection);
         currentHealth -= damage;
         healthSlider.value = currentHealth;
+        _playerAnimationController.UpdateAnimation(false, true, false);
         
         if (currentHealth <= 0)
         {
-            // _playerController.animationState = PlayerController.AnimationState.Dead;
-            UpdateDeath(_playerDirection);
+            _playerAnimationController.UpdateAnimation(false, false, true);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-
+    
+    /*
     public void UpdateDamage(PlayerDirection direction)
     {
         switch (direction.direction)
@@ -122,5 +119,5 @@ public class PlayerHealth : MonoBehaviour
     private static readonly int DeathNorthEast = Animator.StringToHash("DeathNorthEast");
     private static readonly int DeathNorthWest = Animator.StringToHash("DeathNorthWest");
     private static readonly int DeathSouthEast = Animator.StringToHash("DeathSouthEast");
-    private static readonly int DeathSouthWest = Animator.StringToHash("DeathSouthWest");
+    private static readonly int DeathSouthWest = Animator.StringToHash("DeathSouthWest"); */
 }

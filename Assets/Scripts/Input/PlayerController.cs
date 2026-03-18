@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMove _playerMove;
     private PlayerAttack _playerAttack;
     private PlayerHealth _playerHealth;
-    private PlayerDirection _playerDirection;
+    private PlayerAnimationController _playerAnimationController;
 
     [Header("Knockback")] 
     [SerializeField] private float knockbackDelay = 0.2f; 
@@ -40,16 +40,16 @@ public class PlayerController : MonoBehaviour
         _playerMove = GetComponent<PlayerMove>();
         _playerAttack = GetComponent<PlayerAttack>();
         _playerHealth = GetComponent<PlayerHealth>();
-        _playerDirection = GetComponent<PlayerDirection>();
-        
-        animationState = AnimationState.Idle;
+        _playerAnimationController = GetComponentInChildren<PlayerAnimationController>();
     }
 
     private void Update()
     {
-        _playerAttack.UpdateAttack(_playerInput.Attack);
-        
-        // UpdateAnimationState();
+        if (_playerInput.Attack)
+        {
+            _playerAttack.UpdateAttack(_playerInput.Attack);
+            _playerAnimationController.UpdateAnimation(_playerInput.Attack, false, false);
+        }
     }
 
     private void FixedUpdate()
@@ -62,30 +62,9 @@ public class PlayerController : MonoBehaviour
         else
         {
             _playerMove.UpdateMovement(_playerInput.Movement, false);
+            _playerAnimationController.UpdateMoveDirection(_playerInput.Movement);
             _knockbackTimer = 0f;
         }
         
-    }
-
-    private void UpdateAnimationState()
-    {
-        switch (animationState)
-        {
-            case AnimationState.Idle:
-                _playerMove.UpdateIdleDirection(_playerDirection);
-                break;
-            case AnimationState.Run:
-                _playerMove.UpdateMoveDirection(_playerDirection);
-                break;
-            case AnimationState.Attack:
-                _playerAttack.UpdateAttackDirection(_playerDirection);
-                break;
-            case AnimationState.Damage:
-                _playerHealth.UpdateDamage(_playerDirection);
-                break;
-            case AnimationState.Dead:
-                _playerHealth.UpdateDeath(_playerDirection);
-                break;
-        }
     }
 }
