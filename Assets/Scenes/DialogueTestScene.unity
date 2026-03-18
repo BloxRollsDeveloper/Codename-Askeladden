@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bfdbe05869ef7449f65f1a3f729e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  typingSpeed: 0.04
+  typingSpeed: 0.1
   dialoguePanel: {fileID: 2892426891614726124}
   dialogueText: {fileID: 7045774167433009079}
   displayNameText: {fileID: 1772311568}

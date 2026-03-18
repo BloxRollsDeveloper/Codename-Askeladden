@@ -13,6 +13,7 @@ public class Huldra : MonoBehaviour
     [Header("Range")]
     public float attackRange;
     public float runRange;
+    public bool canAttack;
 
     private void Start()
     {
@@ -23,7 +24,11 @@ public class Huldra : MonoBehaviour
     private void Update()
     {
         if (target == null) return;
-        
-        
+
+        if (Vector2.Distance(target.position, transform.position) <= runRange)
+        {
+            canAttack = false;
+            /*_rigidbody.linearVelocity = */
+        }
     }
 }
