@@ -45,11 +45,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (_playerInput.Attack)
-        {
-            _playerAttack.UpdateAttack(_playerInput.Attack);
-            _playerAnimationController.UpdateAnimation(_playerInput.Attack, false, false);
-        }
+        _playerAttack.UpdateAttack(_playerInput.Attack);
+        _playerAnimationController.UpdateAnimation(_playerInput.Attack, false, false);
     }
 
     private void FixedUpdate()

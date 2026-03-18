@@ -25,6 +25,9 @@ public class PlayerAnimationController : MonoBehaviour
             _animator.SetFloat("Horizontal", movementDirection.x);
             _animator.SetFloat("Vertical", movementDirection.y);
         }
+        
+        var direction = movementDirection.normalized;
+        isWalking = direction == Vector2.zero;
     }
     
     public void UpdateAnimation(bool attack, bool takeDamage, bool death)
