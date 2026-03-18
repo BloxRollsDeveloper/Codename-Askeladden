@@ -44,5 +44,8 @@ TagManager:
   - name: Background
     uniqueID: 3645962165
     locked: 0
+  - name: Bush
+    uniqueID: 2021293587
+    locked: 0
   m_RenderingLayers:
   - Default
