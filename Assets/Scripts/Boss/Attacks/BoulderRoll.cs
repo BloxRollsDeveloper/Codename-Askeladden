@@ -5,6 +5,7 @@ public class BoulderRoll : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float stepInterval = 0.2f;
+    public float damage = 10f;
 
     private float targetX;
     private float direction;
@@ -33,6 +34,7 @@ public class BoulderRoll : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Boulder Hit");
+            
         }
     }
 }
