@@ -15,7 +15,7 @@ public class BossController : MonoBehaviour
     [Header("Attack Scripts")] // List of scripts for all attack functionalities
     [SerializeField] private BabyTrollSpawner babyTrollSpawner;
     [SerializeField] private LivingRootSpawner livingRootSpawner;
-    [SerializeField] private BoulderRoll boulderRoll;
+    [SerializeField] private BoulderSpawner boulderSpawner;
     
     private int altarsActivated = 0;
     [SerializeField] private AltarController[] altars;
@@ -63,23 +63,28 @@ public class BossController : MonoBehaviour
 
         switch (attackChoice)
         {
-            case 0: babyTrollSpawner.Spawn(); break;
-            case 1: livingRootSpawner.Spawn(); break;
-            case 2: boulderRoll.Spawn(); break;
+            case 0: BabyTrollSpawner.Spawn(); break;
+            case 1: LivingRootSpawner.Spawn(); break;
+            case 2: boulderSpawner.Launch(); break;
         }
     }
 
     void UpdatePhase() // Switch between phases based on boss hp
     {
-        if (bossHp >= 5)
-            phase = 1;
-        else if (bossHp >= 3)
-            phase = 2;
-        else
-            phase = 3;
-        if (bossHp <= 0)
-            BossDead();
-
+        switch (bossHp)
+        {
+            case 6:
+            case 5:
+                phase = 1; break;
+            case 4:
+            case 3:
+                phase = 2; break;
+            case 2:
+            case 1:
+                phase = 3; break;
+            case 0:
+                BossDead(); break;
+        }
         attackTimer = 0f;
         SetNextAttackTime();
     }
@@ -104,7 +109,7 @@ public class BossController : MonoBehaviour
     void BossDead()
     {
         Debug.Log("Boss defeated");
-        // Trigger death animation here, 
+        // Trigger death animation here.
     }
 
     void ResetAltar()

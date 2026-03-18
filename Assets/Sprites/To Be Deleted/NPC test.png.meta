@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6b6659d7a634d942838fad1ccc590e6
+guid: 287424d2dc401c940a2d7ca198946190
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2949551871426546074
-    second: AltarIdle_0
+      213: -650366586519728641
+    second: NPC test_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,15 +48,15 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 1, z: 0, w: 1}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AltarIdle_0
+      name: NPC test_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 5
         y: 0
-        width: 29
-        height: 39
+        width: 21
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 666380943361117d0800000000000000
-      internalID: -2949551871426546074
+      spriteID: ffd45bc090f69f6f0800000000000000
+      internalID: -650366586519728641
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AltarIdle_0: -2949551871426546074
+      NPC test_0: -650366586519728641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

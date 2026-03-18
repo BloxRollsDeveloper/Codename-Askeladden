@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LivingRootSpawner : MonoBehaviour
 {
-    public void Spawn()
+    public static void Spawn()
     {
         Debug.Log("Spawned Living Root");
     }
