@@ -19,15 +19,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float attackAnimTime;
     
-    private PlayerController _playerController;
-    private PlayerDirection _playerDirection;
-
-    private void Start()
-    {
-        _playerController = GetComponent<PlayerController>();
-        _playerDirection = GetComponent<PlayerDirection>();
-    }
-    
     public void UpdateAttack(bool isAttacking)
     {
         if (isAttacking)
@@ -38,9 +29,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void CheckForEnemies()
     {
-        // _playerController.animationState = PlayerController.AnimationState.Attack;
-        UpdateAttackDirection(_playerDirection);
-        
         Collider2D[] enemies = Physics2D.OverlapCircleAll(activeAttackPoint.position, attackRange, whatIsEnemy);
 
         if (enemies.Length > 0)
@@ -54,6 +42,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    /*
     public void UpdateAttackDirection(PlayerDirection direction)
     {
         switch (direction.direction)
@@ -101,6 +90,6 @@ public class PlayerAttack : MonoBehaviour
     private static readonly int NorthEast = Animator.StringToHash("AttackNorthEast");
     private static readonly int NorthWest = Animator.StringToHash("AttackNorthWest");
     private static readonly int SouthEast = Animator.StringToHash("AttackSouthEast");
-    private static readonly int SouthWest = Animator.StringToHash("AttackSouthWest");
+    private static readonly int SouthWest = Animator.StringToHash("AttackSouthWest"); */
     
 }

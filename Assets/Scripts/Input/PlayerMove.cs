@@ -29,19 +29,9 @@ public class PlayerMove : MonoBehaviour
     {
         if (isDialogueActive) return;
         _rigidbody2D.linearVelocity = movement * (moveSpeed * Time.deltaTime);
-
-        if (Math.Abs(_rigidbody2D.linearVelocityX) > 0 || Math.Abs(_rigidbody2D.linearVelocityY) > 0)
-        {
-            // _playerController.animationState = PlayerController.AnimationState.Run;
-            UpdateMoveDirection(_playerDirection);
-        }
-        else
-        {
-            // _playerController.animationState = PlayerController.AnimationState.Idle;
-            UpdateIdleDirection(_playerDirection);
-        }
     }
 
+    /*
     public void UpdateIdleDirection(PlayerDirection playerDirection)
     {
         switch (playerDirection.direction)
@@ -122,5 +112,5 @@ public class PlayerMove : MonoBehaviour
     private static readonly int RunNorthEast = Animator.StringToHash("RunNorthEast");
     private static readonly int RunNorthWest = Animator.StringToHash("RunNorthWest");
     private static readonly int RunSouthEast = Animator.StringToHash("RunSouthEast");
-    private static readonly int RunSouthWest = Animator.StringToHash("RunSouthWest");
+    private static readonly int RunSouthWest = Animator.StringToHash("RunSouthWest"); */
 }
