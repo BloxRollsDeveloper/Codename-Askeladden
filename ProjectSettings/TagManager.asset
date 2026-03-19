@@ -50,6 +50,9 @@ TagManager:
   - name: Tree
     uniqueID: 2021293587
     locked: 0
+  - name: Big Tree
+    uniqueID: 3776148065
+    locked: 0
   - name: Boulder
     uniqueID: 4253713915
     locked: 0
