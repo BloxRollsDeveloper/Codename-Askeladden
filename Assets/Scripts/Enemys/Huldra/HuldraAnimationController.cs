@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class PlayerAnimationController : MonoBehaviour
+public class HuldraAnimationController : MonoBehaviour
 {
     [SerializeField] private float attackAnimTime;
     [SerializeField] private float damageAnimTime;
     [SerializeField] private float deathAnimTime;
-    [SerializeField] private float altarAnimTime;
     
     private Animator _animator;
     private bool isWalking;
@@ -13,7 +12,7 @@ public class PlayerAnimationController : MonoBehaviour
     private float _lockedTill;
   
     private void Awake() => _animator = GetComponent<Animator>();
-
+    
     public void UpdateMoveDirection(Vector2 movementDirection)
     {
         if (movementDirection != Vector2.zero)
@@ -26,23 +25,22 @@ public class PlayerAnimationController : MonoBehaviour
         isWalking = direction == Vector2.zero;
     }
     
-    public void UpdateAnimation(bool attack, bool takeDamage, bool death, bool crankThatSouljaBoy)
+    public void UpdateAnimation(bool attack, bool takeDamage, bool death)
     {
-        var nextAnimation = GetAnimation(attack, takeDamage, death,  crankThatSouljaBoy);
+        var nextAnimation = GetAnimation(attack, takeDamage, death);
 
         if (nextAnimation == _currentAnimation) return;
         _animator.Play(nextAnimation);
         _currentAnimation = nextAnimation;
     }
 
-    private int GetAnimation(bool attacking, bool takeDamage, bool isDying, bool isCrankingThatSouljaBoy)
+    private int GetAnimation(bool attacking, bool takeDamage, bool isDying)
     {
         if (Time.time < _lockedTill) return _currentAnimation;
         
         if (isDying) return LockAnimation(Death, deathAnimTime);
         if (takeDamage) return LockAnimation(Damage, damageAnimTime);
         if (attacking) return LockAnimation(Attack, attackAnimTime);
-        if (isCrankingThatSouljaBoy) return LockAnimation(Altar, altarAnimTime);
         
         //return direction != Vector2.zero ? Walk : Idle;
         return isWalking ? Idle : Walk;
@@ -57,10 +55,8 @@ public class PlayerAnimationController : MonoBehaviour
     private int _currentAnimation;
 
     private static readonly int Idle = Animator.StringToHash("Idle");
-    private static readonly int Walk = Animator.StringToHash("Run");
+    private static readonly int Walk = Animator.StringToHash("Walk");
     private static readonly int Attack = Animator.StringToHash("Attack");
     private static readonly int Damage = Animator.StringToHash("Damage");
     private static readonly int Death = Animator.StringToHash("Death");
-    private static readonly int Altar = Animator.StringToHash("Alter");
-    
 }
