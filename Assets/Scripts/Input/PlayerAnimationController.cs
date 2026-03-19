@@ -5,6 +5,7 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private float attackAnimTime;
     [SerializeField] private float damageAnimTime;
     [SerializeField] private float deathAnimTime;
+    [SerializeField] private float altarAnimTime;
     
     private Animator _animator;
     private bool isWalking;
@@ -30,22 +31,23 @@ public class PlayerAnimationController : MonoBehaviour
         isWalking = direction == Vector2.zero;
     }
     
-    public void UpdateAnimation(bool attack, bool takeDamage, bool death)
+    public void UpdateAnimation(bool attack, bool takeDamage, bool death, bool crankThatSouljaBoy)
     {
-        var nextAnimation = GetAnimation(attack, takeDamage, death);
+        var nextAnimation = GetAnimation(attack, takeDamage, death,  crankThatSouljaBoy);
 
         if (nextAnimation == _currentAnimation) return;
         _animator.Play(nextAnimation);
         _currentAnimation = nextAnimation;
     }
 
-    private int GetAnimation(bool attacking, bool takeDamage, bool isDying)
+    private int GetAnimation(bool attacking, bool takeDamage, bool isDying, bool isCrankingThatSouljaBoy)
     {
         if (Time.time < _lockedTill) return _currentAnimation;
         
         if (isDying) return LockAnimation(Death, deathAnimTime);
         if (takeDamage) return LockAnimation(Damage, damageAnimTime);
         if (attacking) return LockAnimation(Attack, attackAnimTime);
+        if (isCrankingThatSouljaBoy) return LockAnimation(Altar, altarAnimTime);
         
         //return direction != Vector2.zero ? Walk : Idle;
         return isWalking ? Idle : Walk;
@@ -64,5 +66,6 @@ public class PlayerAnimationController : MonoBehaviour
     private static readonly int Attack = Animator.StringToHash("Attack");
     private static readonly int Damage = Animator.StringToHash("Damage");
     private static readonly int Death = Animator.StringToHash("Death");
+    private static readonly int Altar = Animator.StringToHash("Alter");
     
 }

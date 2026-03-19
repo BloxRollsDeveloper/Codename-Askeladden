@@ -1,28 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerInput), typeof(PlayerMove), typeof(PlayerAttack))]
-[RequireComponent(typeof(PlayerHealth), typeof(PlayerDirection))]
+[RequireComponent(typeof(PlayerHealth))]
 public class PlayerController : MonoBehaviour
 {
-    // basically, we need a way to play animations, without them overlapping each other.
-    public enum AnimationState
-    {
-        Idle,
-        Run,
-        Attack,
-        Damage,
-        Dead,
-        Fiddle
-    }
-    
-    [Header("Animation")]
-    public AnimationState animationState;
-    public bool isMoving;
-    public bool isAttacking;
-    public bool isTakingDamage;
-    public bool isDead;
-    
-    
     private PlayerInput _playerInput;
     private PlayerMove _playerMove;
     private PlayerAttack _playerAttack;
@@ -46,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         _playerAttack.UpdateAttack(_playerInput.Attack);
-        _playerAnimationController.UpdateAnimation(_playerInput.Attack, false, false);
+        _playerAnimationController.UpdateAnimation(_playerInput.Attack, false, false, false);
     }
 
     private void FixedUpdate()
