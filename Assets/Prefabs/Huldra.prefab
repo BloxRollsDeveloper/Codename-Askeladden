@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7836382622948508300}
   - component: {fileID: 6849382881334554707}
   - component: {fileID: 818092758667835202}
+  - component: {fileID: 5314842637853829576}
   - component: {fileID: 2387301846267109118}
   m_Layer: 0
   m_Name: Huldra
@@ -154,15 +155,27 @@ MonoBehaviour:
   attackRange: 3
   runRange: 1
   running: 0
-  timer: 0
-  resetTimer: 0
-  damage: 0
   attackDelay: 0
   attacking: 0
+  hasShot: 0
   projectileSpeed: 3
-  projectileCooldown: 0
   projectileLifetime: 0
   projectile: {fileID: 0}
+--- !u!114 &5314842637853829576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8237470940262231604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11766682954a0154bba1ee367934a3dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HuldraAnimationController
+  attackAnimTime: 0.5
+  damageAnimTime: 0.5
+  deathAnimTime: 0.5
 --- !u!95 &2387301846267109118
 Animator:
   serializedVersion: 7

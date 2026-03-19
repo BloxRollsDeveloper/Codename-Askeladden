@@ -5,19 +5,19 @@ using UnityEngine;
 public class Huldra : MonoBehaviour
 {
     [Header("Target")]
-    public Transform target;
+    [SerializeField] private Transform target;
     
     [Header("Self")]
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private bool canBeAttacked;
     private Vector2 _moveDirection;
     private Rigidbody2D _rigidbody;
-    public float moveSpeed;
-    public bool canBeAttacked;
-    private Animator _animator;
+    private HuldraAnimationController _animationController;
     
     [Header("Range")]
-    public float attackRange;
-    public float runRange;
-    public bool running;
+    [SerializeField] private float attackRange;
+    [SerializeField] private float runRange;
+    [SerializeField] private bool running;
 
     [Header("Attack")]
     [SerializeField] private float attackDelay;
@@ -32,11 +32,14 @@ public class Huldra : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animationController = GetComponent<HuldraAnimationController>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
     {
+        _animationController.UpdateMoveDirection(_moveDirection);
+        
         if (target == null) return;
 
         if (Vector2.Distance(target.position, transform.position) <= runRange && !canBeAttacked)
@@ -62,6 +65,7 @@ public class Huldra : MonoBehaviour
             
             if (!hasShot)
             {
+                _animationController.UpdateAnimation(true, false, false);
                 StartCoroutine(Attacking());
             }
         }
