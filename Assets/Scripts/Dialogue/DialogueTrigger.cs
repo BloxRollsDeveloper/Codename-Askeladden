@@ -31,6 +31,8 @@ public class DialogueTrigger : MonoBehaviour
         if (playerInRange && !dialoguePlaying && inputActions.Player.Interact.WasPressedThisFrame()) // Interact Pressed
         {
             playerCollider.TryGetComponent(out PlayerMove playerMove);
+            playerMove.isDialogueActive = true;
+            inputActions.Player.Disable();
             TriggerDialogue();
         }
     }
