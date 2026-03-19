@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Huldra : MonoBehaviour
@@ -19,15 +20,12 @@ public class Huldra : MonoBehaviour
     public bool running;
 
     [Header("Attack")]
-    [SerializeField] private float timer;
-    [SerializeField] private float resetTimer;
-    [SerializeField] private float damage;
-    [SerializeField] private float attackDelay = 5f;
+    [SerializeField] private float attackDelay;
     [SerializeField] private bool attacking;
+    [SerializeField] private bool hasShot;
     
     [Header("Projectile")]
     [SerializeField] private float projectileSpeed;
-    [SerializeField] private float projectileCooldown;
     [SerializeField] private float projectileLifetime;
     [SerializeField] private GameObject projectile;
 
@@ -35,7 +33,6 @@ public class Huldra : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        resetTimer = timer;
     }
 
     private void Update()
@@ -49,49 +46,43 @@ public class Huldra : MonoBehaviour
         }
         else if (Vector2.Distance(target.position, transform.position) >= attackRange)
         {
-            running = false;
             _rigidbody.linearVelocity = Vector2.zero;
+            running = false;
             canBeAttacked = true;
-            
-            timer += Time.deltaTime;
-
-            if (timer >= attackDelay)
-            {
-                StartAttacking();
-            }
         }
     }
 
     private void FixedUpdate()
     {
         if (running) _rigidbody.linearVelocity = _moveDirection * moveSpeed;
+        
+        if (_rigidbody.linearVelocity == Vector2.zero)
+        {
+            if (attacking) return;
+            
+            if (!hasShot)
+            {
+                StartCoroutine(Attacking());
+            }
+        }
     }
 
-    /*private void Attacking()
+    private IEnumerator Attacking()
     {
         attacking = true;
-        print("Get charmed");
-        
-        
-        
-        timer = resetTimer;
-    }*/
-
-    public void StartAttacking()
-    {
-        attacking = true;
-        Vector3 pdirection = transform.position - target.position;
-        var targetPos = target.position;
+        Vector3 pdirection = -target.position - transform.position;
         var projectileClone = Instantiate(projectile, transform.position, Quaternion.identity);
         projectileClone.TryGetComponent(out Rigidbody2D projectileRb);
-        
-        projectileRb.linearVelocity = pdirection.normalized * projectileSpeed;
-        Destroy(projectileClone, projectileLifetime);
-    }
 
-    public void StopAttacking()
-    {
+        projectileRb.linearVelocity = pdirection.normalized * projectileSpeed;
+        hasShot = true;
+        Destroy(projectileClone, projectileLifetime);
         
+        yield return new WaitForSeconds(attackDelay);
+        
+        attacking = false;
+        canBeAttacked = false;
+        hasShot = false;
     }
 
     private void OnDrawGizmos()
