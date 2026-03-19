@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _playerMove.UpdateMovement(_playerInput.Movement, false);
+            _playerMove.UpdateMovement(_playerInput.Movement);
             _playerAnimationController.UpdateMoveDirection(_playerInput.Movement);
             _knockbackTimer = 0f;
         }

@@ -10,13 +10,14 @@ public class PlayerMove : MonoBehaviour
     [Header("Movement")]
     private Rigidbody2D _rigidbody2D;
     [SerializeField] private float moveSpeed = 5f;
+    public bool isDialogueActive;
 
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
     
-    public void UpdateMovement(Vector2 movement, bool isDialogueActive)
+    public void UpdateMovement(Vector2 movement)
     {
         if (isDialogueActive) return;
         _rigidbody2D.linearVelocity = movement * (moveSpeed * Time.deltaTime);
