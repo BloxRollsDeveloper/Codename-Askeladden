@@ -63,9 +63,11 @@ public class Huldra : MonoBehaviour
         {
             if (attacking) return;
             
+            attacking = true;
+            
             if (!hasShot)
             {
-                _animationController.UpdateAnimation(true, false, false);
+                _animationController.UpdateAnimation(attacking, false, false);
                 StartCoroutine(Attacking());
             }
         }
@@ -73,7 +75,6 @@ public class Huldra : MonoBehaviour
 
     private IEnumerator Attacking()
     {
-        attacking = true;
         Vector3 pdirection = -target.position - transform.position;
         var projectileClone = Instantiate(projectile, transform.position, Quaternion.identity);
         projectileClone.TryGetComponent(out Rigidbody2D projectileRb);
