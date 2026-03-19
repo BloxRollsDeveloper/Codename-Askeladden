@@ -11,6 +11,8 @@ public class DialogueTrigger : MonoBehaviour
     private bool playerInRange;
     private InputSystem_Actions inputActions;
     
+    private Collider2D playerCollider;
+    
     private void Awake()
     {
         playerInRange = false;
@@ -28,6 +30,7 @@ public class DialogueTrigger : MonoBehaviour
         
         if (playerInRange && !dialoguePlaying && inputActions.Player.Interact.WasPressedThisFrame()) // Interact Pressed
         {
+            playerCollider.TryGetComponent(out PlayerMove playerMove);
             TriggerDialogue();
         }
     }
@@ -40,13 +43,19 @@ public class DialogueTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
+        {
             playerInRange = true;
+            playerCollider = collider;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
+        {
             playerInRange = false;
+            playerCollider = null;
+        }
     }
 
     private void OnDestroy()
