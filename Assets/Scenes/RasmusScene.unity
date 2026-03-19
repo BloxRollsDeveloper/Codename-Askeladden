@@ -802,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 1532017873}
     - target: {fileID: 818092758667835202, guid: efec7011bc5815e4a823df5663ff5fca, type: 3}
       propertyPath: attackDelay
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 818092758667835202, guid: efec7011bc5815e4a823df5663ff5fca, type: 3}
       propertyPath: projectileCooldown

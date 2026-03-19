@@ -38,7 +38,7 @@ public class Huldra : MonoBehaviour
 
     private void Update()
     {
-        _animationController.UpdateMoveDirection(_moveDirection);
+        _animationController.UpdateMoveDirection(_rigidbody.linearVelocity);
         
         if (target == null) return;
 
@@ -63,11 +63,8 @@ public class Huldra : MonoBehaviour
         {
             if (attacking) return;
             
-            attacking = true;
-            
             if (!hasShot)
             {
-                _animationController.UpdateAnimation(attacking, false, false);
                 StartCoroutine(Attacking());
             }
         }
@@ -75,6 +72,8 @@ public class Huldra : MonoBehaviour
 
     private IEnumerator Attacking()
     {
+        attacking = true;
+        _animationController.UpdateAnimation(attacking, false, false);
         Vector3 pdirection = -target.position - transform.position;
         var projectileClone = Instantiate(projectile, transform.position, Quaternion.identity);
         projectileClone.TryGetComponent(out Rigidbody2D projectileRb);
