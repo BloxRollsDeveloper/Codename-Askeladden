@@ -483,7 +483,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 0
+  orthographic size: 2.4107144
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1067,6 +1067,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1907337068}
+    - target: {fileID: 8031610516959539057, guid: 33d633121294ba047994696a90917912, type: 3}
+      propertyPath: spawnPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

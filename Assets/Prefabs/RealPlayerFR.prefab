@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1711301112318626768}
   - component: {fileID: 8031610516959539057}
   - component: {fileID: 6117601421122085459}
-  - component: {fileID: 2330878044159706086}
   - component: {fileID: 2906909562954301243}
   m_Layer: 0
   m_Name: RealPlayerFR
@@ -105,15 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb5b22e4750c70468ec7fed4d211162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  attackPoint:
-  - {fileID: 4823420996777936358}
-  - {fileID: 1961960174233214422}
-  - {fileID: 4827814181746081295}
-  - {fileID: 3634390501918348195}
-  - {fileID: 8558807645506180037}
-  - {fileID: 5069065150080096720}
-  - {fileID: 6272489999849605059}
-  - {fileID: 5347466256817968480}
+  spawnPosition: {x: 0, y: 0}
+  moveVector: {x: 0, y: 0}
   activeAttackPoint: {fileID: 4823420996777936358}
   attackRange: 0.55
   whatIsEnemy:
@@ -135,20 +127,6 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
---- !u!114 &2330878044159706086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325160994627724860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f4aa7e8329c48f42b4d8e45b49b4483, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDirection
-  animationLag: 0.3
-  direction: 0
 --- !u!114 &2906909562954301243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,10 +471,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef4ef09fa8a4544fb8828dcf97f629b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
-  attackAnimTime: 0.3
-  damageAnimTime: 0.3
-  deathAnimTime: 0.3
-  altarAnimTime: 0
+  attackAnimTime: 0.5
+  damageAnimTime: 0.5
+  deathAnimTime: 0.5
+  altarAnimTime: 4
 --- !u!95 &248648809078678649
 Animator:
   serializedVersion: 7
