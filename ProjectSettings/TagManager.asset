@@ -47,6 +47,9 @@ TagManager:
   - name: Background
     uniqueID: 3645962165
     locked: 0
+  - name: Player
+    uniqueID: 1280898265
+    locked: 0
   - name: Tree
     uniqueID: 2021293587
     locked: 0
@@ -55,9 +58,6 @@ TagManager:
     locked: 0
   - name: Boulder
     uniqueID: 4253713915
-    locked: 0
-  - name: Player
-    uniqueID: 1280898265
     locked: 0
   m_RenderingLayers:
   - Default
