@@ -19,6 +19,8 @@ public class BossController : MonoBehaviour
     
     private int altarsActivated = 0;
     [SerializeField] private AltarController[] altars;
+    
+    private Animator bossAnimator;
 
     void OnEnable()
     {
@@ -32,6 +34,7 @@ public class BossController : MonoBehaviour
 
     void Start()
     {
+        bossAnimator = GetComponent<Animator>();
         SetNextAttackTime();
     }
 
@@ -63,9 +66,18 @@ public class BossController : MonoBehaviour
 
         switch (attackChoice)
         {
-            case 0: BabyTrollSpawner.Spawn(); break;
-            case 1: LivingRootSpawner.Spawn(); break;
-            case 2: boulderSpawner.Launch(); break;
+            case 0: // Spawn Baby Trolls
+                bossAnimator.SetInteger("BossState", 1);
+                BabyTrollSpawner.Spawn();
+                break;
+            case 1: // Spawn Living Roots
+                bossAnimator.SetInteger("BossState", 2);
+                LivingRootSpawner.Spawn();
+                break;
+            case 2: // Spawn Boulder
+                bossAnimator.SetInteger("BossState", 3);
+                boulderSpawner.Launch();
+                break;
         }
     }
 
@@ -88,6 +100,11 @@ public class BossController : MonoBehaviour
         attackTimer = 0f;
         SetNextAttackTime();
     }
+    
+    public void ReturnToIdle() // Resets the attack animations back to idle after finished playing
+    {
+        bossAnimator.SetInteger("BossState", 0);
+    }
 
     void HandleAltarActivated()
     {
@@ -108,8 +125,8 @@ public class BossController : MonoBehaviour
 
     void BossDead()
     {
+        bossAnimator.SetInteger("BossState", 4);
         Debug.Log("Boss defeated");
-        // Trigger death animation here.
     }
 
     void ResetAltar()
