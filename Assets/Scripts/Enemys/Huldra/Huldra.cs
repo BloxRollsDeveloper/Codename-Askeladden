@@ -23,6 +23,7 @@ public class Huldra : MonoBehaviour
     [SerializeField] private float attackDelay;
     [SerializeField] private bool attacking;
     [SerializeField] private bool hasShot;
+    [SerializeField] private bool canAttack;
     
     [Header("Projectile")]
     [SerializeField] private float projectileSpeed;
@@ -38,34 +39,46 @@ public class Huldra : MonoBehaviour
 
     private void Update()
     {
-        _animationController.UpdateMoveDirection(_rigidbody.linearVelocity);
-        
         if (target == null) return;
-
+        
+        canAttack = false;
         if (Vector2.Distance(target.position, transform.position) <= runRange && !canBeAttacked)
         {
             running = true;
-            _moveDirection = -target.position + transform.position;
+            _moveDirection = transform.position - target.position;
         }
-        else if (Vector2.Distance(target.position, transform.position) >= attackRange)
+        else if (Vector2.Distance(target.position, transform.position) <= attackRange)
         {
             _rigidbody.linearVelocity = Vector2.zero;
             running = false;
             canBeAttacked = true;
+            canAttack = true;
+        }
+
+        if (canAttack)
+        {
+            _animationController.UpdateMoveDirection(target.position - transform.position);
         }
     }
 
     private void FixedUpdate()
     {
-        if (running) _rigidbody.linearVelocity = _moveDirection * moveSpeed;
+        if (running)
+        {
+            _rigidbody.linearVelocity = _moveDirection * moveSpeed;
+            _animationController.UpdateMoveDirection(_moveDirection);
+        }
+            
         
-        if (_rigidbody.linearVelocity == Vector2.zero)
+        if (canAttack)
         {
             if (attacking) return;
             
             if (!hasShot)
             {
+                _animationController.UpdateAnimation(true, false, false);
                 StartCoroutine(Attacking());
+                _animationController.UpdateAnimation(false, false, false);
             }
         }
     }
@@ -73,8 +86,8 @@ public class Huldra : MonoBehaviour
     private IEnumerator Attacking()
     {
         attacking = true;
-        _animationController.UpdateAnimation(attacking, false, false);
-        Vector3 pdirection = -target.position - transform.position;
+        
+        Vector3 pdirection = target.position - transform.position;
         var projectileClone = Instantiate(projectile, transform.position, Quaternion.identity);
         projectileClone.TryGetComponent(out Rigidbody2D projectileRb);
 
