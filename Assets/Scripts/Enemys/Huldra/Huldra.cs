@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Huldra : MonoBehaviour
 {
+    public enum Animations
+    {
+        Idle,
+        Walk,
+        Attack,
+        Damage,
+        Death
+    }
+    
+    public Animations currentAnimation = Animations.Idle;
+    
     [Header("Target")]
     [SerializeField] private Transform target;
     
@@ -54,10 +65,14 @@ public class Huldra : MonoBehaviour
             canBeAttacked = true;
             canAttack = true;
         }
-
-        if (canAttack)
+        else
         {
-            _animationController.UpdateMoveDirection(target.position - transform.position);
+            if (currentAnimation != Animations.Idle)
+            {
+                _animationController.UpdateMoveDirection(Vector2.zero);
+                _animationController.UpdateAnimation(false, false, false);
+                currentAnimation = Animations.Idle;
+            }
         }
     }
 
@@ -66,19 +81,33 @@ public class Huldra : MonoBehaviour
         if (running)
         {
             _rigidbody.linearVelocity = _moveDirection * moveSpeed;
-            _animationController.UpdateMoveDirection(_moveDirection);
+            if (currentAnimation != Animations.Walk)
+            {
+                _animationController.UpdateMoveDirection(_moveDirection);
+                _animationController.UpdateAnimation(false, false, false);
+                currentAnimation = Animations.Walk;
+            }
+            
         }
             
         
         if (canAttack)
         {
+            _animationController.UpdateMoveDirection(target.position - transform.position);
+            
+            // TODO: add a something something idle animation. Sondre, kiss me baby
+            
             if (attacking) return;
+
+            if (currentAnimation != Animations.Attack)
+            {
+                _animationController.UpdateAnimation(true, false, false);
+                currentAnimation = Animations.Attack;
+            } 
             
             if (!hasShot)
             {
-                _animationController.UpdateAnimation(true, false, false);
                 StartCoroutine(Attacking());
-                _animationController.UpdateAnimation(false, false, false);
             }
         }
     }
@@ -108,5 +137,7 @@ public class Huldra : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, runRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, runRange * 2);
     }
 }
