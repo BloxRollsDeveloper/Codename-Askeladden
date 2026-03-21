@@ -30,9 +30,6 @@ public class DialogueTrigger : MonoBehaviour
         
         if (playerInRange && !dialoguePlaying && inputActions.Player.Interact.WasPressedThisFrame()) // Interact Pressed
         {
-            playerCollider.TryGetComponent(out PlayerMove playerMove);
-            playerMove.isDialogueActive = true;
-            inputActions.Player.Disable();
             TriggerDialogue();
         }
     }
@@ -47,7 +44,6 @@ public class DialogueTrigger : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
-            playerCollider = collider;
         }
     }
 
@@ -56,7 +52,6 @@ public class DialogueTrigger : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             playerInRange = false;
-            playerCollider = null;
         }
     }
 

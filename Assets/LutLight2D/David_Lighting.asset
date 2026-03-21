@@ -29,7 +29,7 @@ MonoBehaviour:
   _blur:
     enabled: 0
     value: 1
-  _saveIndexedLut: 1
+  _saveIndexedLut: 0
   _gradsPath: Assets/LutLight2D/Colour ramps1.png
   _lut: {fileID: 0}
   _lutIndexed: {fileID: 0}

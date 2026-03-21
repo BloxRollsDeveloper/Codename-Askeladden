@@ -22,6 +22,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
     
+    [Header("Audio")]
+    [SerializeField] private SoundEffectManager soundEffectManager;
+    
     private Story currentStory;
     private int currentChoiceIndex = 0;
     private bool canContinueToNextLine = false;
@@ -40,6 +43,8 @@ public class DialogueManager : MonoBehaviour
     private const string PORTRAIT_TAG = "portrait";
     
     private const string LAYOUT_TAG = "layout";
+    
+    private const string SOUND_TAG = "sound";
     
     
     private InputSystem_Actions inputActions;
@@ -225,6 +230,9 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case LAYOUT_TAG:
                     LayoutAnimator.Play(tagValue);
+                    break;
+                case SOUND_TAG:
+                    soundEffectManager.PlaySound(tagValue);
                     break;
                 default:
                     Debug.LogError("Tag came in but is not currently being handled: " + tag);

@@ -25,7 +25,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _LUM_GRADING_LUM
+  - _LUM_GRADING_MAX
   - _LUT_SIZE_X32
   - _PIXELATED
   m_InvalidKeywords: []
@@ -62,7 +62,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Grades: 4
-    - _LUM_GRADING: 1
+    - _LUM_GRADING: 0
     - _LUT_SIZE: 1
     - _Light_Impact: 1.04
     - _PIXELATED: 1
