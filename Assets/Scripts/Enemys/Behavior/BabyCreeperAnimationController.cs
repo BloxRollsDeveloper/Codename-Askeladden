@@ -35,7 +35,7 @@ public class BabyCreeperAnimationController : MonoBehaviour
         _currentAnimation = nextAnimation;
     }
 
-    private int GetAnimation(bool isSpawning,bool isExploding, bool takeDamage, bool isDying)
+    private int GetAnimation(bool isSpawning, bool isExploding, bool takeDamage, bool isDying)
     {
         if (Time.time < _lockedTill) return _currentAnimation;
 
