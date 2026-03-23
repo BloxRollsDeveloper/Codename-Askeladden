@@ -1,14 +1,39 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.Serialization;
 
 public class BabyCreeperTrolls : MonoBehaviour
 {
+   public enum State
+   {
+      Spawn,
+      Idle,
+      Walk,
+      Explode,
+      Damage,
+      Death
+   }
+
+   public enum Animation
+   {
+      Spawn,
+      Idle,
+      Walk,
+      Explode,
+      Damage,
+      Death
+   }
+    
+   public State state = State.Spawn;
+   public Animation currentAnimation = Animation.Spawn;
+   
    [Header("Target")]
    public Transform target;
    
    [Header("Self")]
    private Vector2 _moveDirection;
    private Rigidbody2D _rigidbody2D;
+   private BabyCreeperAnimationController _animationController;
    public float speed;
 
    [Header("Range")]
@@ -20,35 +45,55 @@ public class BabyCreeperTrolls : MonoBehaviour
    [SerializeField] private float knockBackForce;
    [SerializeField] private float damage;
    [SerializeField] private bool attacking;
-   [SerializeField] private float timer = 0f;
+   [SerializeField] private float attackTimer = 0f;
+   
+   [Header("Spawning")] 
+   [SerializeField] private float chaseDelay;
+   [SerializeField] private float chaseTimer = 0f;
+   [SerializeField] private bool hasSpawned;
    
    private void Start()
    {
       _rigidbody2D = GetComponent<Rigidbody2D>();
+      _animationController = GetComponent<BabyCreeperAnimationController>();
       target = GameObject.FindGameObjectWithTag("Player").transform;
-      canChase = true;
+
+      if (!hasSpawned)
+      {
+         state = State.Spawn;
+         SwitchAnimation(Animation.Spawn, true, false, false, false);
+      }
    }
 
    private void Update()
    {
+      if (!hasSpawned) return;
+      
       if (target ==null) return;
       
       if (canChase)
       {
+         print("I am chasing the player!");
          _moveDirection = target.position - transform.position;
+         state = State.Walk;
+         _animationController.UpdateMoveDirection(_moveDirection);
+         SwitchAnimation(Animation.Walk, false,false, false, false);
       }
 
       if (Vector2.Distance(target.position, transform.position) <= attackRange)
       {
          canChase = false;
          if (attacking) return;
+         print("I am going to explode the player!");
          
          _rigidbody2D.linearVelocity = Vector2.zero;
-         print("This could be an animation");
+         state = State.Explode;
+         print($"Current animation: {currentAnimation}");
+         SwitchAnimation(Animation.Explode, false, true, false, false);
          
-         timer += Time.deltaTime;
+         attackTimer += Time.deltaTime;
 
-         if (timer >= attackDelay)
+         if (attackTimer >= attackDelay)
          {
             Attacking();
          }
@@ -82,6 +127,21 @@ public class BabyCreeperTrolls : MonoBehaviour
       target.TryGetComponent(out Rigidbody2D playerBody);
       playerBody.linearVelocity = force;
       print("I Am Dead");
+   }
+
+   public void UponSpawning()
+   {
+      hasSpawned = true;
+      canChase = true;
+   }
+   
+   private void SwitchAnimation(Animation anim, bool isSpawning, bool isExploding, bool isDamaged, bool isDead)
+   {
+      if (currentAnimation != anim)
+      {
+         _animationController.UpdateAnimation(isSpawning, isExploding, isDamaged, isDead);
+         currentAnimation = anim;
+      }
    }
    
    private void OnDrawGizmos()
