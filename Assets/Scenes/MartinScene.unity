@@ -483,7 +483,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 2.4107144
+  orthographic size: 6.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -508,7 +508,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0000054836273, y: 0.0000017881393, z: -10}
+  m_LocalPosition: {x: 5.860014, y: 0.0000047683716, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -809,7 +809,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 2.385561
+    OrthographicSize: 6.21
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -836,7 +836,7 @@ Transform:
   m_GameObject: {fileID: 1504690787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0000054836273, y: 0.0000017881393, z: -10}
+  m_LocalPosition: {x: 5.860014, y: 0.0000047683716, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1029,7 +1029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1252024471613939008, guid: 33d633121294ba047994696a90917912, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.86
       objectReference: {fileID: 0}
     - target: {fileID: 1252024471613939008, guid: 33d633121294ba047994696a90917912, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1088,6 +1088,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 553811325821989920, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.26049
@@ -1128,6 +1132,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1304819254834501696, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304819254834501696, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
+      propertyPath: moveSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304819254834501696, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
+      propertyPath: runAwayRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304819254834501696, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
+      propertyPath: targetMargin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304819254834501696, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
+      propertyPath: approachRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304819254834501696, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 5981517681979406189, guid: 08afd5b6f92fac14f968eb3932b1e80a, type: 3}
     - target: {fileID: 5186139519989377044, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
       propertyPath: m_Name
       value: HuldraFR

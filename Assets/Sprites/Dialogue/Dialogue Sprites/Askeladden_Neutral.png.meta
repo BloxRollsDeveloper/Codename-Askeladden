@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7551aba72f558aa4cbf4bd59656fbd57
+guid: 7173d6029d60a2145a9b6b5e0ea3b969
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3188267603327421391
-    second: Martin Talk3png_0
+      213: 2652159035446510070
+    second: Askeladden_Neutral_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Martin Talk3png_0
+      name: Askeladden_Neutral_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 120
-        height: 160
+        width: 113
+        height: 149
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fcb87393e700f3c20800000000000000
-      internalID: 3188267603327421391
+      spriteID: 6f1c1ab479c5ec420800000000000000
+      internalID: 2652159035446510070
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Martin Talk3png_0: 3188267603327421391
+      Askeladden_Neutral_0: 2652159035446510070
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

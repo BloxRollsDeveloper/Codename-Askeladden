@@ -188,9 +188,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewHuldraFR
   state: 0
   currentAnimation: 0
-  moveSpeed: 2
-  targetDistance: 2.5
+  moveSpeed: 0.6
   attackRange: 3
-  runRange: 1
-  targetMargin: 0.2
-  changeRarity: 25
+  runAwayRange: 2
+  approachRange: 3
+  projectilePrefab: {fileID: 5981517681979406189, guid: 08afd5b6f92fac14f968eb3932b1e80a, type: 3}
+  projectileSpeed: 2
+  projectileLifetime: 1
+  attackDelay: 2
+  timer: 0
