@@ -105,45 +105,6 @@ public class NewHuldraFR : MonoBehaviour
                 SwitchAnimation(Animation.Attack, true, false, false);
             }
         }
-        
-        if (true) return;
-        
-        /* TODO: Remove this
-         
-        if (_target == null) return;
-        
-        var dist = Vector2.Distance(_target.position, transform.position);
-        if (dist <= runAwayRange)
-        {
-            ResetTargetPoint();
-            Walk();
-            return;
-        }
-        
-        if (dist <= attackRange)
-        {
-            state = State.Attack;
-            _animationController.UpdateMoveDirection(_target.position - transform.position);
-            SwitchAnimation(Animation.Attack, true, false, false);
-            return;
-        }
-
-        if (Vector2.Distance(_targetPoint, transform.position) > targetMargin)
-        {
-            Walk();
-        }
-        else
-        {
-            print("I am stopping here!");
-            state = State.Idle;
-            _rigidbody2D.linearVelocity = Vector2.zero;
-            _animationController.UpdateMoveDirection(Vector2.zero);
-            SwitchAnimation(Animation.Idle, false, false, false);
-        }
-
-        if (Random.Range(1, changeRarity) > 1) return;
-        ResetTargetPoint();
-        */
     }
 
     private void SwitchAnimation(Animation anim, bool isAttacking, bool isDamaged, bool isDead)

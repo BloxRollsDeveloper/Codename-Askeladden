@@ -743,7 +743,11 @@ GameObject:
   m_Component:
   - component: {fileID: 746624476}
   - component: {fileID: 746624475}
+  - component: {fileID: 746624478}
+  - component: {fileID: 746624477}
   - component: {fileID: 746624474}
+  - component: {fileID: 746624480}
+  - component: {fileID: 746624479}
   m_Layer: 0
   m_Name: SmallTrollFR
   m_TagString: Untagged
@@ -847,6 +851,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &746624477
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746624473}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &746624478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746624473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f16d1bda3e76749a3e929f9b7a68cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
+  maxHealth: 10
+  currentHealth: 10
+--- !u!114 &746624479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746624473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fbf8b770df4974eab0297f77f82625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BabyCreeperTrolls
+  state: 0
+  currentAnimation: 0
+  target: {fileID: 1933835993}
+  speed: 2
+  attackRange: 2
+  canChase: 0
+  attackDelay: 5
+  knockBackForce: 3
+  damage: 1
+  attacking: 0
+  timer: 0
+--- !u!114 &746624480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746624473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d16e2cfae12dd746ba4253c5466afed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BabyCreeperAnimationController
+  explodeAnimTime: 0.5
+  damageAnimTime: 0.5
+  deathAnimTime: 0.5
+  spawnAnimTime: 0.5
 --- !u!114 &1907337068 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7039803842176183045, guid: d1c2be617532fca40ae2caba5a501da1, type: 3}
@@ -858,6 +942,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!4 &1933835993 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1252024471613939008, guid: 33d633121294ba047994696a90917912, type: 3}
+  m_PrefabInstance: {fileID: 5489551174262189749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2328839651417073920
 PrefabInstance:
   m_ObjectHideFlags: 0
