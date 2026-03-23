@@ -3,12 +3,36 @@ using Unity.Cinemachine;
 
 public class BabyCreeperTrolls : MonoBehaviour
 {
+   public enum State
+   {
+      Spawn,
+      Idle,
+      Walk,
+      Attack,
+      Damage,
+      Death
+   }
+
+   public enum Animation
+   {
+      Spawn,
+      Idle,
+      Walk,
+      Attack,
+      Damage,
+      Death
+   }
+    
+   public State state = State.Spawn;
+   public Animation currentAnimation = Animation.Spawn;
+   
    [Header("Target")]
    public Transform target;
    
    [Header("Self")]
    private Vector2 _moveDirection;
    private Rigidbody2D _rigidbody2D;
+   private BabyCreeperAnimationController _animationController;
    public float speed;
 
    [Header("Range")]
@@ -22,11 +46,16 @@ public class BabyCreeperTrolls : MonoBehaviour
    [SerializeField] private bool attacking;
    [SerializeField] private float timer = 0f;
    
+   
    private void Start()
    {
       _rigidbody2D = GetComponent<Rigidbody2D>();
+      _animationController = GetComponent<BabyCreeperAnimationController>();
       target = GameObject.FindGameObjectWithTag("Player").transform;
       canChase = true;
+
+      state = State.Spawn;
+      SwitchAnimation(Animation.Spawn, true, false, false, false);
    }
 
    private void Update()
@@ -36,6 +65,9 @@ public class BabyCreeperTrolls : MonoBehaviour
       if (canChase)
       {
          _moveDirection = target.position - transform.position;
+         state = State.Walk;
+         _animationController.UpdateMoveDirection(_moveDirection);
+         SwitchAnimation(Animation.Walk, false,false, false, false);
       }
 
       if (Vector2.Distance(target.position, transform.position) <= attackRange)
@@ -82,6 +114,16 @@ public class BabyCreeperTrolls : MonoBehaviour
       target.TryGetComponent(out Rigidbody2D playerBody);
       playerBody.linearVelocity = force;
       print("I Am Dead");
+   }
+   
+   
+   private void SwitchAnimation(Animation anim, bool isSpawning, bool isExploding, bool isDamaged, bool isDead)
+   {
+      if (currentAnimation != anim)
+      {
+         _animationController.UpdateAnimation(isSpawning, isExploding, isDamaged, isDead);
+         currentAnimation = anim;
+      }
    }
    
    private void OnDrawGizmos()
