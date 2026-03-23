@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Askeladden_Neutral
+  m_Name: Askeladden_Angry
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -8278506735144569160, guid: 70b4829756b03cd489e101e7f406a2c0, type: 3}
+      value: {fileID: -1724994902, guid: 70b4829756b03cd489e101e7f406a2c0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -8278506735144569160, guid: 70b4829756b03cd489e101e7f406a2c0, type: 3}
+    - {fileID: -1724994902, guid: 70b4829756b03cd489e101e7f406a2c0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

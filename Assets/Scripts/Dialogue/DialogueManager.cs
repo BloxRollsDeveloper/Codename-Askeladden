@@ -133,11 +133,9 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJson.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
-        
         displayNameText.text = "???";
-        portraitAnimator.Play("Default");
         LayoutAnimator.Play("Right");
-        
+    
         ContinueStory();
     }
 
@@ -211,7 +209,7 @@ public class DialogueManager : MonoBehaviour
         foreach (string tag in currentTags)
         {
             // parse the tag
-            string[] splitTags = tag.Split(':');
+            string[] splitTags = tag.Split(new char[]{':'}, 2);
             if (splitTags.Length != 2)
             {
                 Debug.LogError("Tag could not be parsed: " + tag);
@@ -232,7 +230,7 @@ public class DialogueManager : MonoBehaviour
                     LayoutAnimator.Play(tagValue);
                     break;
                 case SOUND_TAG:
-                    soundEffectManager.PlaySound(tagValue);
+                    soundEffectManager.PlayDialogueClip(tagValue);
                     break;
                 default:
                     Debug.LogError("Tag came in but is not currently being handled: " + tag);
