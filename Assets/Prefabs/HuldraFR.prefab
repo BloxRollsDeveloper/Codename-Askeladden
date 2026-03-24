@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 553811325821989920}
   - component: {fileID: 5952433099743337572}
   - component: {fileID: 5000558054593503354}
-  - component: {fileID: 17615636205837526}
   - component: {fileID: 1304819254834501696}
+  - component: {fileID: 17615636205837526}
   m_Layer: 0
   m_Name: HuldraFR
   m_TagString: Untagged
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1373432417
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1873214058440193814, guid: 473e27b519f5b054fa52aaac91e4337e, type: 3}
@@ -152,28 +152,6 @@ MonoBehaviour:
   attackAnimTime: 0.5
   damageAnimTime: 0.5
   deathAnimTime: 0.5
---- !u!95 &17615636205837526
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5186139519989377044}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 057dd6b4313a0b84cb5cc8afec90befc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1304819254834501696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,3 +175,25 @@ MonoBehaviour:
   projectileLifetime: 1
   attackDelay: 2
   timer: 0
+--- !u!95 &17615636205837526
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5186139519989377044}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 057dd6b4313a0b84cb5cc8afec90befc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
