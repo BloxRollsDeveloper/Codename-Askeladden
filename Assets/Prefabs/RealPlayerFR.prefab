@@ -128,6 +128,7 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
+  deathScreen: {fileID: 0}
 --- !u!114 &2906909562954301243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 6.21
+    OrthographicSize: 2.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -274,7 +275,7 @@ MonoBehaviour:
   Composition:
     ScreenPosition: {x: -0.00000062584877, y: 0.0000003874302}
     DeadZone:
-      Enabled: 1
+      Enabled: 0
       Size: {x: 0.6908335, y: 0.6459257}
     HardLimits:
       Enabled: 0
