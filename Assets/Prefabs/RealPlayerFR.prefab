@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8031610516959539057}
   - component: {fileID: 6117601421122085459}
   - component: {fileID: 2906909562954301243}
+  - component: {fileID: 3910775375447109224}
   m_Layer: 3
   m_Name: RealPlayerFR
   m_TagString: Player
@@ -141,6 +142,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   knockbackDelay: 0.2
   isKnockedBack: 0
+--- !u!70 &3910775375447109224
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325160994627724860}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.078987926}
+  m_Size: {x: 0.5, y: 0.9907072}
+  m_Direction: 0
 --- !u!1 &1328200785553315544
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
   attackAnimTime: 0.5
   damageAnimTime: 0.5
-  deathAnimTime: 0.5
+  deathAnimTime: 1
   altarAnimTime: 4
 --- !u!114 &6298689604279806620
 MonoBehaviour:

@@ -7,6 +7,9 @@ public class CreeperTrollHealth : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
     
+    [Header("Drops")]
+    [SerializeField] private GameObject[] dropPrefabs;
+    
     private BabyCreeperAnimationController _animController;
     
     private void Start()
@@ -23,6 +26,9 @@ public class CreeperTrollHealth : MonoBehaviour
         {
             _animController.UpdateAnimation(false, false, false, true);
             Destroy(gameObject, 0.5f);
+            
+            Instantiate(dropPrefabs[Random.Range(0, dropPrefabs.Length)], transform.position, Quaternion.identity);
+            
             TryGetComponent(out CinemachineImpulseSource impulse);
             impulse.GenerateImpulse();
         }

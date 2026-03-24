@@ -9,8 +9,8 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
-            gameObject.TryGetComponent(out PlayerHealth playerHealth);
+            print("I hit " + other.gameObject.name);
+            other.TryGetComponent(out PlayerHealth playerHealth);
             playerHealth.TakeDamage(damage);
         }
     }

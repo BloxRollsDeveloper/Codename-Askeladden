@@ -1,11 +1,15 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using Random = UnityEngine.Random;
 
 public class HuldraHealth : MonoBehaviour
 {
     [Header("Health")]
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
+    
+    [Header("Drops")]
+    [SerializeField] private GameObject dropPrefab;
     
     private HuldraAnimationController _animController;
     
@@ -23,6 +27,9 @@ public class HuldraHealth : MonoBehaviour
         {
             _animController.UpdateAnimation(false, false, true);
             Destroy(gameObject, 0.5f);
+            
+            Instantiate(dropPrefab, transform.position, Quaternion.identity);
+            
             TryGetComponent(out CinemachineImpulseSource impulse);
             impulse.GenerateImpulse();
         }

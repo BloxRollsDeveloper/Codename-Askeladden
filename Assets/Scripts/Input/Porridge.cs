@@ -11,6 +11,7 @@ public class Porridge : MonoBehaviour
         {
             collision.TryGetComponent(out PlayerHealth playerHealth);
             playerHealth.Heal(healingEffect);
+            Destroy(gameObject);
         }
     }
 }
