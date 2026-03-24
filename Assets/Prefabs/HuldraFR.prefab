@@ -11,13 +11,15 @@ GameObject:
   - component: {fileID: 818913044586753527}
   - component: {fileID: 4975457807969805438}
   - component: {fileID: 553811325821989920}
-  - component: {fileID: 5952433099743337572}
   - component: {fileID: 5000558054593503354}
-  - component: {fileID: 17615636205837526}
+  - component: {fileID: 8413440161771508188}
   - component: {fileID: 1304819254834501696}
-  m_Layer: 0
+  - component: {fileID: 7124358931405481676}
+  - component: {fileID: 9025438668651698064}
+  - component: {fileID: 17615636205837526}
+  m_Layer: 6
   m_Name: HuldraFR
-  m_TagString: Untagged
+  m_TagString: Huldra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +65,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,8 +84,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1373432417
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1873214058440193814, guid: 473e27b519f5b054fa52aaac91e4337e, type: 3}
@@ -122,21 +124,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &5952433099743337572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5186139519989377044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f16d1bda3e76749a3e929f9b7a68cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
-  maxHealth: 100
-  currentHealth: 100
+  m_Constraints: 4
 --- !u!114 &5000558054593503354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,8 +138,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HuldraAnimationController
   attackAnimTime: 0.5
-  damageAnimTime: 0.5
+  damageAnimTime: 0.1
   deathAnimTime: 0.5
+--- !u!114 &8413440161771508188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5186139519989377044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f98444272486564eaab600afddeced8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HuldraHealth
+  maxHealth: 20
+  currentHealth: 20
+  dropPrefab: {fileID: 1472400819335243961, guid: 202dc8b2d6a0a7b45b6bb992a875bc3d, type: 3}
+--- !u!114 &1304819254834501696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5186139519989377044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2a294cda9c1304d9e3a6fbee5b2cf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewHuldraFR
+  state: 0
+  currentAnimation: 0
+  moveSpeed: 0.6
+  attackRange: 3
+  runAwayRange: 2
+  approachRange: 3
+  projectilePrefab: {fileID: 2944064815494669853, guid: 9e3849cbca3f9a240a73fbe908fb96d3, type: 3}
+  projectileSpeed: 2
+  projectileLifetime: 1
+  attackDelay: 2
+  timer: 0
+--- !u!70 &7124358931405481676
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5186139519989377044}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.03125}
+  m_Size: {x: 0.375, y: 1.0625}
+  m_Direction: 0
+--- !u!114 &9025438668651698064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5186139519989377044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseSource
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 3
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.2
+    ImpulseType: 0
+    DissipationRate: 0.25
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0, y: -1, z: 0}
 --- !u!95 &17615636205837526
 Animator:
   serializedVersion: 7
@@ -174,26 +290,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1304819254834501696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5186139519989377044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2a294cda9c1304d9e3a6fbee5b2cf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewHuldraFR
-  state: 0
-  currentAnimation: 0
-  moveSpeed: 0.6
-  attackRange: 3
-  runAwayRange: 2
-  approachRange: 3
-  projectilePrefab: {fileID: 5981517681979406189, guid: 08afd5b6f92fac14f968eb3932b1e80a, type: 3}
-  projectileSpeed: 2
-  projectileLifetime: 1
-  attackDelay: 2
-  timer: 0

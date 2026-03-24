@@ -63,8 +63,33 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    pptrCurveMapping:
+    - {fileID: -1462218787709894055, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: -5879936400870987361, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: -6084311685191182217, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: -5923582344257123654, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: 2978116836205080458, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: -1924132732571020745, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: -423158897670438668, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: 9095583508115619901, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: 8027416899588694630, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: 3781433974462480579, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: 2733293208294742657, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: 5440947797897100814, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: -4265391091813936497, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: 3273270728628622490, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: 6298228576798543709, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
+    - {fileID: 6298228576798543709, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -89,4 +114,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.33
+    functionName: UponDeath
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

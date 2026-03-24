@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
     
+    [SerializeField] private GameObject deathScreen;
+    
     private PlayerAnimationController _playerAnimationController;
 
     private void Start()
@@ -24,12 +26,21 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         healthSlider.value = currentHealth;
-        _playerAnimationController.UpdateAnimation(false, true, false, false);
         
         if (currentHealth <= 0)
         {
+            deathScreen.SetActive(true);
             _playerAnimationController.UpdateAnimation(false, false, true, false);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        else
+        {
+            _playerAnimationController.UpdateAnimation(false, true, false, false);
+        }
+    }
+
+    public void Heal(float heal)
+    {
+        currentHealth += heal;
+        healthSlider.value = currentHealth;
     }
 }

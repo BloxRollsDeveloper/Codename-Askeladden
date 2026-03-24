@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 8031610516959539057}
   - component: {fileID: 6117601421122085459}
   - component: {fileID: 2906909562954301243}
-  m_Layer: 0
+  - component: {fileID: 3910775375447109224}
+  m_Layer: 3
   m_Name: RealPlayerFR
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb5b22e4750c70468ec7fed4d211162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  spawnPosition: {x: -7.29, y: 0.90257}
+  spawnPosition: {x: 5.86, y: 0}
   moveVector: {x: 0, y: 0}
   activeAttackPoint: {fileID: 0}
   attackRange: 0.55
@@ -127,6 +128,7 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
+  deathScreen: {fileID: 0}
 --- !u!114 &2906909562954301243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +143,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   knockbackDelay: 0.2
   isKnockedBack: 0
+--- !u!70 &3910775375447109224
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325160994627724860}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.078987926}
+  m_Size: {x: 0.5, y: 0.9907072}
+  m_Direction: 0
 --- !u!1 &1328200785553315544
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +193,7 @@ GameObject:
   - component: {fileID: 3574802989131059974}
   - component: {fileID: 8753860959919589866}
   - component: {fileID: 1361792358025842390}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CinemachineCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +240,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 6.21
+    OrthographicSize: 2.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -236,7 +275,7 @@ MonoBehaviour:
   Composition:
     ScreenPosition: {x: -0.00000062584877, y: 0.0000003874302}
     DeadZone:
-      Enabled: 1
+      Enabled: 0
       Size: {x: 0.6908335, y: 0.6459257}
     HardLimits:
       Enabled: 0
@@ -297,8 +336,9 @@ GameObject:
   - component: {fileID: 193016925654890198}
   - component: {fileID: 5953107907017921298}
   - component: {fileID: 6071825252689711677}
+  - component: {fileID: 6298689604279806620}
   - component: {fileID: 248648809078678649}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Askeladden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +386,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -365,8 +405,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1280898265
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7031750283521683191, guid: 1acb0c889f53b8c4a9ec0bd99646e1bc, type: 3}
@@ -393,8 +433,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
   attackAnimTime: 0.5
   damageAnimTime: 0.5
-  deathAnimTime: 0.5
+  deathAnimTime: 1
   altarAnimTime: 4
+--- !u!114 &6298689604279806620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8153017168527561370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35b54e350c38594e9724b600b35a0e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathScreen
+  deathScreen: {fileID: 0}
 --- !u!95 &248648809078678649
 Animator:
   serializedVersion: 7

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Huldra
+  - Creeper
   layers:
   - Default
   - TransparentFX
@@ -47,6 +49,9 @@ TagManager:
   - name: Background
     uniqueID: 3645962165
     locked: 0
+  - name: Enemy
+    uniqueID: 2921534879
+    locked: 0
   - name: Player
     uniqueID: 1280898265
     locked: 0
@@ -58,6 +63,9 @@ TagManager:
     locked: 0
   - name: Bush
     uniqueID: 4253713915
+    locked: 0
+  - name: UI
+    uniqueID: 1330627725
     locked: 0
   m_RenderingLayers:
   - Default
