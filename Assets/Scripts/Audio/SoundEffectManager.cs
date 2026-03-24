@@ -5,6 +5,7 @@ public class SoundEffectManager : MonoBehaviour
 {
     private static SoundEffectManager _instance;
     private AudioSource audioSource;
+    private AudioSource dialogueAudioSource;
     [SerializeField] private Slider sfxSlider;
     private float masterVolume = 1f;
     
@@ -16,6 +17,9 @@ public class SoundEffectManager : MonoBehaviour
         {
             _instance = this;
             audioSource = GetComponent<AudioSource>();
+            
+            dialogueAudioSource = gameObject.AddComponent<AudioSource>(); // Seperate audio source for dialogue
+            
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -31,11 +35,13 @@ public class SoundEffectManager : MonoBehaviour
             AudioClip clip = Resources.Load<AudioClip>($"Dialogue/{character}/{clipName}");
             if (clip != null)
             {
-                audioSource.PlayOneShot(clip, masterVolume);
+                dialogueAudioSource.Stop();
+                dialogueAudioSource.clip = clip;
+                dialogueAudioSource.volume = masterVolume;
+                dialogueAudioSource.Play();
                 return;
             }
         }
-        Debug.LogWarning("Dialogue clip not found: " + clipName);
     }
 
     private void Start()
