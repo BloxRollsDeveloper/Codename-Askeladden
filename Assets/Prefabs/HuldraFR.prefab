@@ -173,7 +173,7 @@ MonoBehaviour:
   attackRange: 3
   runAwayRange: 2
   approachRange: 3
-  projectilePrefab: {fileID: 5981517681979406189, guid: 08afd5b6f92fac14f968eb3932b1e80a, type: 3}
+  projectilePrefab: {fileID: 2944064815494669853, guid: 9e3849cbca3f9a240a73fbe908fb96d3, type: 3}
   projectileSpeed: 2
   projectileLifetime: 1
   attackDelay: 2
