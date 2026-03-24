@@ -3,15 +3,10 @@ using Direction = PlayerDirection;
 
 public class PlayerAttack : MonoBehaviour
 {
-    /* TODO:
-     * : add a transform for each direction, maybe?
-     */
-    
     [Header("Direction")]
     [SerializeField] private Vector2 spawnPosition;
     [SerializeField] private Vector2 moveVector;
     private Rigidbody2D _rigidbody2D;
-    
     
     [Header("Weapon")]
     [SerializeField] private Transform activeAttackPoint;
@@ -47,8 +42,16 @@ public class PlayerAttack : MonoBehaviour
             print("enemies found");
             foreach (Collider2D col in enemies)
             {
-                col.TryGetComponent(out Enemy_Health health);
-                health.TakeDamage(damage);
+                if (col.CompareTag("Huldra"))
+                {
+                    col.TryGetComponent(out HuldraHealth health);
+                    health.TakeDamage(damage);
+                }
+                else if (col.CompareTag("Creeper"))
+                {
+                    col.TryGetComponent(out CreeperTrollHealth trollHealth);
+                    trollHealth.TakeDamage(damage);
+                }
             }
         }
     }
