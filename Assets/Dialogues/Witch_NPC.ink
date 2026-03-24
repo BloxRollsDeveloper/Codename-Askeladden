@@ -1,5 +1,5 @@
 Can anyone hear me?! #speaker:Witch #portrait:Witch_Neutral #layout:Right
-Yes, hello! My name is Askeladden, how can I be of service? #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left
+Yes, hello! My name is Askeladden, how can I be of service? #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_1
 Thank goodness someone has found me! Would you care to help an old lady out? Im stuck in this tree stump and I seem to not have a way out of this situation. #speaker:Witch #portrait:Witch_Neutral #layout:Right
 
 -> Choice1

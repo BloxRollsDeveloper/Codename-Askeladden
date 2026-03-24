@@ -5,9 +5,10 @@ public class SoundEffectManager : MonoBehaviour
 {
     private static SoundEffectManager _instance;
     private AudioSource audioSource;
-    private SoundEffectLibrary soundEffectLibrary;
     [SerializeField] private Slider sfxSlider;
     private float masterVolume = 1f;
+    
+    private string[] characterFolders = { "Askeladden", "Witch", "Huldra", "Benjamin", "Bugh", "Markus", "Niklas" };
     
     private void Awake()
     {
@@ -15,7 +16,6 @@ public class SoundEffectManager : MonoBehaviour
         {
             _instance = this;
             audioSource = GetComponent<AudioSource>();
-            soundEffectLibrary = GetComponent<SoundEffectLibrary>();
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -24,28 +24,19 @@ public class SoundEffectManager : MonoBehaviour
         }
     }
 
-    public static void Play(string soundName)
+    public void PlayDialogueClip(string clipName)
     {
-        if (_instance == null)
+        foreach (string character in characterFolders)
         {
-            return;
+            AudioClip clip = Resources.Load<AudioClip>($"Dialogue/{character}/{clipName}");
+            if (clip != null)
+            {
+                audioSource.PlayOneShot(clip, masterVolume);
+                return;
+            }
         }
-
-        float groupVolume;
-        AudioClip clip = _instance.soundEffectLibrary.GetRandomClip(soundName, out groupVolume);
-
-        if (clip != null)
-        {
-            float finalVolume = _instance.masterVolume * groupVolume;
-            _instance.audioSource.PlayOneShot(clip, finalVolume);
-        }
+        Debug.LogWarning("Dialogue clip not found: " + clipName);
     }
-
-    public void PlaySound(string soundName)
-    {
-        Play(soundName);
-    }
-    
 
     private void Start()
     {
