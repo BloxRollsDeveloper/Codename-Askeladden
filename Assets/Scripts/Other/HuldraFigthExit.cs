@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class HuldraFigthExit : MonoBehaviour
 {
-    public void LeveFigth()
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        /*SceneManager.LoadScene();*/
+        if (other.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("EmilioMainScenePart2");
+        }
     }
 }
