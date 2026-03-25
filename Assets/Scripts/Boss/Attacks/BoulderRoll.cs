@@ -33,8 +33,9 @@ public class BoulderRoll : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            other.TryGetComponent(out PlayerHealth playerHealth);
+            playerHealth.TakeDamage(damage);
             Debug.Log("Boulder Hit");
-            
         }
     }
 }
