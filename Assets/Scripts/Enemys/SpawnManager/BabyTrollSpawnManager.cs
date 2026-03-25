@@ -7,14 +7,18 @@ public class BabyTrollSpawnManager : MonoBehaviour
 
     private const float SpawnInterval = 20f;
     private float spawnTimer;
+    private DialogueManager dialogueManager;
 
     void Start()
     {
         spawnTimer = SpawnInterval;
+        dialogueManager = DialogueManager.GetInstance();
     }
 
     void Update()
     {
+        if (dialogueManager.dialogueIsPlaying) return;
+        
         spawnTimer -= Time.deltaTime;
 
         if (spawnTimer <= 0f)

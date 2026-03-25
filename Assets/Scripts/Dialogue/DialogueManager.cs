@@ -135,6 +135,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
         displayNameText.text = "???";
         LayoutAnimator.Play("Right");
+        inputActions.Player.Disable();
     
         ContinueStory();
     }
@@ -146,6 +147,7 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        
     }
 
     private void ContinueStory()
