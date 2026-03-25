@@ -8,7 +8,7 @@ Thank goodness someone has found me! Would you care to help an old lady out? Im 
     + Of course I can help you out! #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_2a
         Thank you so much young man! You are way too kind. #speaker:Witch #portrait:Witch_Neutral #layout:Right #sound:witch_askeladden_3a
         -> AfterChoice1
-    + I can certainly try, but i can't promise you anything. #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_2b
+    + I can certainly try, but i can't promise... #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_2b
         That's fine, anything will help an old hag like me. #speaker:Witch #portrait:Witch_Neutral #layout:Right #sound:witch_askeladden_3b
         -> AfterChoice1
     + You have a really big nose, maybe that's why. #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_2c
@@ -27,7 +27,7 @@ Why are you wandering around these parts of the forest? There are a lot of dange
     + Beasts? Like from the fairytales? #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_4a
         Yes, all those stories with the trolls and the creatures, they are real. #speaker:Witch #portrait:Witch_Neutral #layout:Right #sound:witch_askeladden_6a
         -> AfterChoice2_01
-    + You know, I'm one with the nature! But I've never once been here before. #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_4b
+    + You know, I'm one with the nature... #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_4b
         That's good, because you should not be here. #speaker:Witch #portrait:Witch_Neutral #layout:Right #sound:witch_askeladden_6b
         -> AfterChoice2_02
     + Why do you care? #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_4c
@@ -57,7 +57,7 @@ The only way you can open the gateway through the big tree is beating the other 
 -> Choice3
 
 === Choice3 ===
-    + I will certainly do that for you! Anything to help the forest. #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_8a
+    + I will certainly do that for you! #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_8a
         Thank you, young man. you have been of great help for me. #speaker:Witch #portrait:Witch_Neutral #layout:Right #sound:witch_askeladden_11a
         -> AfterChoice3
     + Do you know where she is? #speaker:Askeladden #portrait:Askeladden_Neutral #layout:Left #sound:askeladden_witch_8b

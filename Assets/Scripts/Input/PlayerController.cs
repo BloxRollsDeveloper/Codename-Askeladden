@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private float _knockbackTimer = 0f;
     public bool isKnockedBack = false;
     
+    private DialogueManager _dialogueManager;
+    
     private void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -22,16 +24,22 @@ public class PlayerController : MonoBehaviour
         _playerAttack = GetComponent<PlayerAttack>();
         _playerHealth = GetComponent<PlayerHealth>();
         _playerAnimationController = GetComponentInChildren<PlayerAnimationController>();
+
+        _dialogueManager = DialogueManager.GetInstance();
     }
 
     private void Update()
     {
+        if (_dialogueManager.dialogueIsPlaying) return;
+        
         _playerAttack.UpdateAttack(_playerInput.Attack);
         _playerAnimationController.UpdateAnimation(_playerInput.Attack, false, false, false);
     }
 
     private void FixedUpdate()
     {
+        if (_dialogueManager.dialogueIsPlaying) return;
+        
         if (isKnockedBack && _knockbackTimer <= knockbackDelay)
         {
             _knockbackTimer += Time.fixedDeltaTime;
