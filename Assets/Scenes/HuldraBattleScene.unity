@@ -227,7 +227,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 2.4107144
+  orthographic size: 1.875
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -769,6 +769,63 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &117142434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1715626376737989492, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_Name
+      value: HuldraJunior
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2412999855025992822, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ddd12f492988a314495567dcb68bb57b, type: 3}
 --- !u!1 &132133396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568fd098ca073cd42bd3073fb62b09b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HuldraFigthExit
+  huldraSenior: {fileID: 11400000, guid: b4f6d93ead6f1da418e862614144a07b, type: 2}
+  huldraJunior: {fileID: 11400000, guid: 5efc6a0e34a2335429e22d3c09340a3d, type: 2}
 --- !u!1 &261543529
 GameObject:
   m_ObjectHideFlags: 0
@@ -54232,63 +54291,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1906331402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &835931307
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.22441125
-      objectReference: {fileID: 0}
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -19.355661
-      objectReference: {fileID: 0}
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 818913044586753527, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5186139519989377044, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
-      propertyPath: m_Name
-      value: HuldraFR
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ce45061947000aa42bb1c382e999cca5, type: 3}
 --- !u!1 &848832627
 GameObject:
   m_ObjectHideFlags: 0
@@ -56989,6 +56991,63 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &1412949043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2531550904147019954, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_Name
+      value: HuldraSenior
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2480874
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.307108
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000122968791029777, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1fce3135900d87b49b200f0d744868da, type: 3}
 --- !u!1 &1502050525
 GameObject:
   m_ObjectHideFlags: 0
@@ -60094,5 +60153,6 @@ SceneRoots:
   - {fileID: 1622978883}
   - {fileID: 2103041710}
   - {fileID: 2100348671}
-  - {fileID: 835931307}
   - {fileID: 2080946525}
+  - {fileID: 1412949043}
+  - {fileID: 117142434}
