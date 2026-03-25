@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/HuldraBattleScene.unity
     guid: dd5cc393cee2473e3a4b298dc9a4ae4b
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/EmilioMainScenePart2.unity
     guid: 87326ff08e6ce871a85f822a2b4f8e66
   - enabled: 1
+=======
+>>>>>>> parent of ef2c9ae (Final Changes)
     path: Assets/Scenes/BossStage.unity
     guid: 79a04410416cb5343a2e841220f0d19e
   m_configObjects:

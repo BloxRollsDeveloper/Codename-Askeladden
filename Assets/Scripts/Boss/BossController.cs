@@ -68,11 +68,11 @@ public class BossController : MonoBehaviour
         {
             case 0: // Spawn Baby Trolls
                 bossAnimator.SetInteger("BossState", 1);
-                boulderSpawner.Launch();
+                BabyTrollSpawner.Spawn();
                 break;
             case 1: // Spawn Living Roots
                 bossAnimator.SetInteger("BossState", 2);
-                boulderSpawner.Launch();
+                LivingRootSpawner.Spawn();
                 break;
             case 2: // Spawn Boulder
                 bossAnimator.SetInteger("BossState", 3);
