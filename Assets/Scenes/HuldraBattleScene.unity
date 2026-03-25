@@ -131,6 +131,8 @@ GameObject:
   - component: {fileID: 4593955}
   - component: {fileID: 4593954}
   - component: {fileID: 4593953}
+  - component: {fileID: 4593958}
+  - component: {fileID: 4593957}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -223,9 +225,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2.4107144
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -250,12 +252,68 @@ Transform:
   m_GameObject: {fileID: 4593952}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5124197, y: -6.1342893, z: -10}
+  m_LocalPosition: {x: -11.319994, y: -5.8059335, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4593957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
+  m_ComponentVersion: 1
+  m_AssetsPPU: 32
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_CropFrame: 0
+  m_GridSnapping: 1
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
+--- !u!114 &4593958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
+  ShowDebugText: 0
+  ShowCameraFrustum: 1
+  IgnoreTimeScale: 0
+  WorldUpOverride: {fileID: 0}
+  ChannelMask: -1
+  UpdateMethod: 2
+  BlendUpdateMethod: 1
+  LensModeOverride:
+    Enabled: 0
+    DefaultMode: 2
+  DefaultBlend:
+    Style: 1
+    Time: 2
+    CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  CustomBlends: {fileID: 0}
 --- !u!1 &24575576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1144,7 @@ GameObject:
   - component: {fileID: 222621909}
   - component: {fileID: 222621911}
   - component: {fileID: 222621910}
+  - component: {fileID: 222621912}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -1213,6 +1272,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &222621912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222621908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 568fd098ca073cd42bd3073fb62b09b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HuldraFigthExit
 --- !u!1 &261543529
 GameObject:
   m_ObjectHideFlags: 0
@@ -59248,7 +59319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1252024471613939008, guid: 33d633121294ba047994696a90917912, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.364838
+      value: -11.32
       objectReference: {fileID: 0}
     - target: {fileID: 1252024471613939008, guid: 33d633121294ba047994696a90917912, type: 3}
       propertyPath: m_LocalPosition.y
@@ -60012,16 +60083,16 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 4593956}
   - {fileID: 407503473}
   - {fileID: 1799782921}
   - {fileID: 1692344350}
   - {fileID: 1906331402}
   - {fileID: 2090603605}
+  - {fileID: 325404269}
+  - {fileID: 1153141716}
   - {fileID: 1622978883}
   - {fileID: 2103041710}
   - {fileID: 2100348671}
-  - {fileID: 1153141716}
   - {fileID: 835931307}
   - {fileID: 2080946525}
-  - {fileID: 325404269}
-  - {fileID: 4593956}
