@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private PlayerAttack _playerAttack;
     private PlayerHealth _playerHealth;
     private PlayerAnimationController _playerAnimationController;
+    
+    private Rigidbody2D _playerRigidbody2D;
 
     [Header("Knockback")] 
     [SerializeField] private float knockbackDelay = 0.2f; 
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
         _playerAttack = GetComponent<PlayerAttack>();
         _playerHealth = GetComponent<PlayerHealth>();
         _playerAnimationController = GetComponentInChildren<PlayerAnimationController>();
+        _playerRigidbody2D = GetComponent<Rigidbody2D>();
 
         _dialogueManager = DialogueManager.GetInstance();
     }
@@ -38,7 +41,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_dialogueManager.dialogueIsPlaying) return;
+        if (_dialogueManager.dialogueIsPlaying)
+        {
+            _playerRigidbody2D.linearVelocity = Vector2.zero;
+            _playerAnimationController.UpdateMoveDirection(Vector2.zero);
+            return;
+        }
         
         if (isKnockedBack && _knockbackTimer <= knockbackDelay)
         {
